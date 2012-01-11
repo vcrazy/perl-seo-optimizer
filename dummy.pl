@@ -5,7 +5,7 @@ use strict;
 use XML::Simple;
 use Data::Dumper;
 
-#това ти е примерно извикване
+#tova ti e primerno izvikvane
 #my $xml = XML::Simple->new();
 #my $settings_file = $xml->XMLin('
 #<employee>
@@ -15,25 +15,26 @@ use Data::Dumper;
 #        <department>Operations</department>
 #</employee>'); # the name of the file with the settings
 #my $settings = Dumper($settings_file);
-#с дъмпа прави цялата структура как ти изглежда
-#ако ти трябват стойностите от файла след прочитане може да ги достъпиш така
+#s dympa vijdash kak ti izglejda structurata
+#ako ti trqbvat stoinostite se dostypvat aka
 #print $settings_file->{'name'},"\n";
 #print $settings_file->{'age'};
 
-#ето ти и пример с твоя файл
+#eto primera s tvoq fail
 my $xml = XML::Simple->new();
 my $settings_file = $xml->XMLin('E:\AppServ\www\perl-seo-optimizer\optimizer_settings.xml'); # the name of the file with the settings
 my $settings = Dumper($settings_file);
 
-#print $settings; #тук можеш да видиш цялата структира с dump
+#print $settings; #tuk mojesh da vidish cqlata structura s dump
 print "\n\n\n-----------------------------\n автор: ",$settings_file->{'book'}{'bk111'}{'author'}," книга:", $settings_file->{'book'}{'bk111'}{'author'},"\n";
 
-#ако искаш да обходиш всички книги правиш така
+#ako iskash da obhodish vsichki knigi pravish taka
 
 print "\n\n\n-----------------------------\n автор: ",$settings_file->{'book'}{"$_"}{'author'}," книга:", $settings_file->{'book'}{"$_"}{'author'},"\n" foreach (keys %{$settings_file->{'book'}} );
 
-# какво прави   %{$settings_file->{'book'}} първо $settings_file->{'book'} това ти сочи хеш, затова  казваш на perl ок щом е хеш погледни стойностите в този хеш %{$settings_file->{'book'}} /което дефакто е дереференсване/
-# и след това му казваш за всички ключове в този хеш ти ми принтирай еди какво си например $settings_file->{'book'}{"$_"}{'author'} тук автор е дъното на структурата за това няма нужда да му казваш като какво да го разглежда
+# kakvo pravi   %{$settings_file->{'book'}} ? pyrvo $settings_file->{'book'} tova ti sochi hesh, zatova kazvash na  perl ok shtom e hesh pogledni stoinostite v nego %{$settings_file->{'book'}} /koeto defakto e dereference/
+# i sled tova mu kazvash za vsichki kliuchove v tozi hesh ti mi printira edi kakwo si naprimern $settings_file->{'book'}{"$_"}{'author'} tuk avtor e dynoto na strukturata za tova nqma nujda da gledash v neq kakvo ima /da q dereference-vash/
 
 
-#ако това ти беше върнало $settings_file->{'book'} array щеше да го дереференсваш в array @{$settings_file->{'book'}} скаларите не се нуждаят от дереференция
+#ako tova ti beshe vyrnalo $settings_file->{'book'} array shteshe da go dereferensvash v konteskt na array @{$settings_file->{'book'}}
+# na bg beshe napisano ama neshto gita ne go haresa
