@@ -1,0 +1,19 @@
+готино да го използваме -> http://snippets.dzone.com/posts/show/1895 изглежда ми сложно :D ама май ще ни казва като не може да се connect -не към сайта
+
+-------------
+
+да се изхвърлят линковете като тук
+
+http://www.stratos.me/2009/05/writing-a-simple-web-crawler-in-perl/
+
+
+------------
+
+някакви идей с хешове и visited
+
+http://www.dreamincode.net/forums/topic/135442-perl-web-crawler/
+
+------------
+
+
+първо crawler-a след това го правим с нишки - мишки
