@@ -1,22 +1,63 @@
 {
-    "glossary": {
-        "title": "example glossary",
-		"GlossDiv": {
-            "title": "S",
-			"GlossList": {
-                "GlossEntry": {
-                    "ID": "SGML",
-					"SortAs": "SGML",
-					"GlossTerm": "Standard Generalized Markup Language",
-					"Acronym": "SGML",
-					"Abbrev": "ISO 8879:1986",
-					"GlossDef": {
-                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
-						"GlossSeeAlso": ["GML", "XML"]
-                    },
-					"GlossSee": "markup"
-                }
-            }
+    "settings": {
+		"content": {
+			"js": {
+				"max_size": 256
+			},
+			"css": {
+				"max_size": 128
+			},
+			"flash": {
+				"use": false
+			},
+            "max_length": 100000,
+			"title": {
+				"max_length": 127
+			},
+			"meta_tags": {
+				"keywords": {
+					"bad": ["banner", "affiliate", "tralala"],
+					"max_number": 50,
+					"max_length": 255,
+					"max_repeated_word": 3
+				},
+				"description": {
+					"max_length": 255,
+					"max_sentences": 10,
+					"max_repeated_word": 3
+				}
+			},
+			"urls": {
+				"max_length": 127,
+				"max_special_chars": 10,
+				"max_slashes": 5,
+				"max_outgoing": "15%"
+			},
+			"tags": {
+				"ul": {
+					"required": true,
+					"min_elements": 2
+				},
+				"a": {
+					"max_elements": 100
+				},
+				"h1": {
+					"required": true,
+					"max_elements": 10
+				},
+				"h2": {
+					"max_elements": 20
+				},
+				"h3": {
+					"max_elements": 100
+				},
+				"img": {
+					"max_elements": 100,
+					"alt": {
+						"required": true
+					}
+				}
+			}
         }
     }
 }
