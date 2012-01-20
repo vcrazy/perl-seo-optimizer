@@ -1,9 +1,41 @@
-#! /usr/bin/perl
+package crawler;
+
 use strict;
 use WWW::Mechanize;
 
+BEGIN
+{
+use Exporter ();
+our ($VERSION, @ISA, @EXPORT, @EXPORT_OK, %EXPORT_TAGS);
+
+# set the version for version checking
+$VERSION     = 1.00;
+
+@ISA         = qw(Exporter);
+@EXPORT      = qw( &IsLink &GetDomain &IsNotFile &Crawler &GenerateID );
+%EXPORT_TAGS = ( );     # eg: TAG => [ qw!name1 name2! ],
+
+# your exported package globals go here,
+# as well as any optionally exported functions
+@EXPORT_OK   = qw();
+}
+our @EXPORT_OK;
+
+sub GenerateID
+{
+  use strict;
+  my $id="";
+
+  #ID
+  $id=time();
+  $id.=int(rand(10)) while ( length($id)<17 );
+
+  return ($id);
+}
+
 sub IsLink
 {
+  use strict;
   my ($link)=@_;
   my ($bul)=(' ¡¢£¤¥¦§¨©ª«¬­®¯àáâãäåæçèéêìîï');
   return ($link=~m/^(((((https?)|(ftp)):\/\/)|(www)) #to begin with http: https or www
@@ -16,6 +48,7 @@ sub IsLink
 
 sub GetDomain
 {
+  use strict;
   my ($link)=@_;
   my ($bul)=(' ¡¢£¤¥¦§¨©ª«¬­®¯àáâãäåæçèéêìîï');
   if ( $link=~m/^(((((https?)|(ftp)):\/\/)|(www)) #to begin with http: https or www
@@ -31,6 +64,7 @@ sub GetDomain
 
 sub UniqueUrl
 {
+  use strict;
   my ($link, $unique_urls)=@_;
   
   foreach (@{$unique_urls})
@@ -53,8 +87,9 @@ sub IsNotFile
 }
 
 
-sub Crawer
+sub Crawler
 {
+  use strict;
   my ($uri,$depth,$unique_urls)=@_;
   my $mech = WWW::Mechanize->new( agent => 'perl-seo-optimizer 1.00' );
 
@@ -92,10 +127,12 @@ sub Crawer
   }  
 }
 
+
+
 my @list_url;
 
 print "--------------------------------------------\n";
-&Crawer("http://mobile.bg",0, \@list_url);
+&Crawler("http://mobile.bg",0, \@list_url);
 
 #print $_, "\n" foreach (@list_url);
 
