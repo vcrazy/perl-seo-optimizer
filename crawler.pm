@@ -1,4 +1,4 @@
-package crawler;
+ο»Ώpackage crawler;
 
 use strict;
 use WWW::Mechanize;
@@ -37,7 +37,7 @@ sub IsLink
 {
   use strict;
   my ($link)=@_;
-  my ($bul)=(' ΅Ά£¤¥¦§¨©ª«¬­®―ΰαβγδεζηθικμξο');
+  my ($bul)=('Π°Π±Π²Π³Π΄ΠµΠ¶Π·ΠΈΠΉΠΊΠ»ΠΌΠ½ΠΎΠΏΡ€ΡΡ‚ΡƒΡ„Ρ…Ρ†Ρ‡ΡΡ‰ΡΡΡΡ');
   return ($link=~m/^(((((https?)|(ftp)):\/\/)|(www)) #to begin with http: https or www
                ([\-\w$bul]+\.)+                 #to catch the domain
                ([\w{2,6}$bul]+)                 #to catch the area bg com
@@ -50,7 +50,7 @@ sub GetDomain
 {
   use strict;
   my ($link)=@_;
-  my ($bul)=(' ΅Ά£¤¥¦§¨©ª«¬­®―ΰαβγδεζηθικμξο');
+  my ($bul)=('Π°Π±Π²Π³Π΄ΠµΠ¶Π·ΠΈΠΉΠΊΠ»ΠΌΠ½ΠΎΠΏΡ€ΡΡ‚ΡƒΡ„Ρ…Ρ†Ρ‡ΡΡ‰ΡΡΡΡ');
   if ( $link=~m/^(((((https?)|(ftp)):\/\/)|(www)) #to begin with http: https or www
                ([\-\w$bul]+\.)+                 #to catch the domain
                ([\w{2,6}$bul]+)                 #to catch the area bg com
