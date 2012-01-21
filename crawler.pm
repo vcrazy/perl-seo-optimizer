@@ -102,6 +102,7 @@ sub Crawler
 {
   use strict;
   use base 'crawler::DBI';
+  use Encode;
   my ($uri,$depth,$unique_urls)=@_;
   my $mech = WWW::Mechanize->new( agent => 'perl-seo-optimizer 1.00' );
   
@@ -116,10 +117,10 @@ sub Crawler
   
   $mech->get( $uri );
   my @page_urls=$mech->links;
+  #my $content= encode("utf8", $mech->content());
   my $content= $mech->content();
   my $id= &GenerateID();
   
-  print "\n $id, $uri, $content, $depth \n";
   my $result=crawler::SEO->insert
   ({ 
     id       => $id,
@@ -128,7 +129,8 @@ sub Crawler
     depth    => $depth,
     vis_cr   => 1
    });
-  print $result;
+  crawler::SEO->dbi_commit();
+  
   
   my $domain= &GetDomain($uri);
 
@@ -158,7 +160,7 @@ sub Crawler
 my @list_url;
 
 print "--------------------------------------------\n";
-&Crawler("http://mobile.bg",0, \@list_url);
+&Crawler("http://probook.bg",0, \@list_url);
 
 #print $_, "\n" foreach (@list_url);
 
