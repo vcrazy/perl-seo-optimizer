@@ -1,7 +1,18 @@
-﻿package crawler;
+package crawler::DBI;
+use lib 'E:/AppServ/www/perl-seo-optimizer/';
+use base 'Class::DBI';
+use globalvars;
+use strict;
 
+crawler::DBI->connection("dbi:Pg:dbname=$globalvars::dbname;host=$globalvars::host;port=$globalvars::port", $globalvars::dbuser, $globalvars::dbpass);
+
+
+package crawler::SEO;
+
+use lib 'E:/AppServ/www/perl-seo-optimizer/';
 use strict;
 use WWW::Mechanize;
+use globalvars;
 
 BEGIN
 {
@@ -37,7 +48,7 @@ sub IsLink
 {
   use strict;
   my ($link)=@_;
-  my ($bul)=('абвгдежзийклмнопрстуфхцчшщъьюя');
+  my $bul=$globalvars::bul_alphabet;
   return ($link=~m/^(((((https?)|(ftp)):\/\/)|(www)) #to begin with http: https or www
                ([\-\w$bul]+\.)+                 #to catch the domain
                ([\w{2,6}$bul]+)                 #to catch the area bg com
@@ -50,7 +61,7 @@ sub GetDomain
 {
   use strict;
   my ($link)=@_;
-  my ($bul)=('абвгдежзийклмнопрстуфхцчшщъьюя');
+  my $bul=$globalvars::bul_alphabet;
   if ( $link=~m/^(((((https?)|(ftp)):\/\/)|(www)) #to begin with http: https or www
                ([\-\w$bul]+\.)+                 #to catch the domain
                ([\w{2,6}$bul]+)                 #to catch the area bg com
@@ -90,10 +101,13 @@ sub IsNotFile
 sub Crawler
 {
   use strict;
+  use base 'crawler::DBI';
   my ($uri,$depth,$unique_urls)=@_;
   my $mech = WWW::Mechanize->new( agent => 'perl-seo-optimizer 1.00' );
-
-
+  
+  crawler::SEO->table('sites');
+  crawler::SEO->columns(All => qw/id link content depth vis_cr/);
+  
   #initialize the list of urls
   if ($#{$unique_urls} == -1)
     {
@@ -103,7 +117,19 @@ sub Crawler
   $mech->get( $uri );
   my @page_urls=$mech->links;
   my $content= $mech->content();
- 
+  my $id= &GenerateID();
+  
+  print "\n $id, $uri, $content, $depth \n";
+  my $result=crawler::SEO->insert
+  ({ 
+    id       => $id,
+    link     => $uri,
+    content  => $content,
+    depth    => $depth,
+    vis_cr   => 1
+   });
+  print $result;
+  
   my $domain= &GetDomain($uri);
 
   foreach (@page_urls)

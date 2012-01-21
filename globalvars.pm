@@ -1,4 +1,4 @@
-package globalvars;
+﻿package globalvars;
 
 use strict;
 
@@ -23,6 +23,8 @@ our @EXPORT_OK;
 
 our $host    = "localhost";
 our $dbname  = "perlseo";
-our $port    = 15432;
+our $port    = 5432;
 our $dbuser  = "postgres";
 our $dbpass  = "";
+
+ our $bul_alphabet='абвгдежзийклмнопрстуфхцчшщъьюя';
