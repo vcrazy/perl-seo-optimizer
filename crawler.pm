@@ -110,16 +110,22 @@ sub Crawler
   crawler::SEO->columns(All => qw/id link content depth vis_cr/);
   
   #initialize the list of urls
+  
+  $mech->get( $uri );
+  my @page_urls=$mech->links;
+  my $content= encode("utf8", $mech->content());
+  #my $content= $mech->content();
+  my $id= &GenerateID();
+  
   if ($#{$unique_urls} == -1)
     {
       $unique_urls->[0]=$uri;
     }
   
-  $mech->get( $uri );
-  my @page_urls=$mech->links;
-  #my $content= encode("utf8", $mech->content());
-  my $content= $mech->content();
-  my $id= &GenerateID();
+  
+  print $unique_urls."\n---------------------------\n";
+  
+  
   
   my $result=crawler::SEO->insert
   ({ 
@@ -140,15 +146,17 @@ sub Crawler
       {
         if ( (&GetDomain($_->[0])=~m/$domain/) and (&UniqueUrl($_->[0],$unique_urls)) and (&IsNotFile($_->[0])) )
           {
+            print "da\n";
             if ( $depth==0 )
               {
                 $unique_urls->[$#{$unique_urls}+1]=$_->[0];
               }
             else
               {
+                print "    ne\n";
                 #print $_->[0], "-nivo $depth\n";
                 $unique_urls->[$#{$unique_urls}+1]=$_->[0];
-                &Crawer($_->[0],$depth-1,$unique_urls);
+                &Crawler($_->[0],$depth-1,$unique_urls);
               }
           }
       }
@@ -160,7 +168,7 @@ sub Crawler
 my @list_url;
 
 print "--------------------------------------------\n";
-&Crawler("http://probook.bg",0, \@list_url);
+&Crawler("http://mobile.bg",1, \@list_url);
 
 #print $_, "\n" foreach (@list_url);
 
