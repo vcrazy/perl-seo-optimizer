@@ -1,17 +1,16 @@
 package crawler::DBI;
 use lib 'E:/AppServ/www/perl-seo-optimizer/';
-use base 'Class::DBI';
+#use base 'Class::DBI';
 use globalvars;
 use strict;
 
-crawler::DBI->connection("dbi:Pg:dbname=$globalvars::dbname;host=$globalvars::host;port=$globalvars::port", $globalvars::dbuser, $globalvars::dbpass);
+#crawler::DBI->connection("dbi:Pg:dbname=$globalvars::dbname;host=$globalvars::host;port=$globalvars::port", $globalvars::dbuser, $globalvars::dbpass);
 
 
 package crawler::SEO;
 
 use lib 'E:/AppServ/www/perl-seo-optimizer/';
 use strict;
-use WWW::Mechanize;
 use globalvars;
 
 BEGIN
@@ -56,7 +55,18 @@ sub IsLink
                (([\w$bul\-\.\?\\\/+@&#;`~=%!]*) #to catch varaiables
                (\.\w{2,}$bul)?)*\/?)$/ix);
 }
-
+sub IsSubLink
+{
+  use strict;
+  my ($page, $link)=@_;
+  if ($$link=~m/^\//)
+    {
+      $page=substr($page,0,-1) if($page=~m/\/$/);
+      $$link="$page$$link";
+      return 1;
+    }
+  return 0;
+}
 sub GetDomain
 {
   use strict;
@@ -97,78 +107,129 @@ sub IsNotFile
   return 1 ;
 }
 
+sub GetLinksFromPage
+{
+  use strict;
+  use WWW::Mechanize;
+  
+  my ($link, $unique_urls)=@_;
+  my $mech= WWW::Mechanize->new( agent => 'perl seo optimizer v 1.1');    #Creates object, hereafter referred to as the "agent".
+  $mech->get($link);                                                      #returns the HTTP::Response object
+
+  my $domain=&GetDomain($link);
+  foreach ( $mech->links )
+    {
+      if (&IsLink($_->[0]) or &IsSubLink($link,\$_->[0]))                 #find if is really a link or is sublink. In case sublink we make it full link.
+        {
+          if( (&GetDomain($_->[0])=~m/$domain/) and (&UniqueUrl($_->[0],$unique_urls)) and (&IsNotFile($_->[0])) )
+            {
+                 $unique_urls->[$#{$unique_urls}+1]=$_->[0];              #save the link
+                 $unique_urls->[$#{$unique_urls}+1]=0;                    #flag for the crawler
+            }
+        }
+    }
+  
+}
 
 sub Crawler
 {
   use strict;
-  use base 'crawler::DBI';
-  use Encode;
-  my ($uri,$depth,$unique_urls)=@_;
-  my $mech = WWW::Mechanize->new( agent => 'perl-seo-optimizer 1.00' );
   
-  crawler::SEO->table('sites');
-  crawler::SEO->columns(All => qw/id link content depth vis_cr/);
-  
-  #initialize the list of urls
-  
-  $mech->get( $uri );
-  my @page_urls=$mech->links;
-  my $content= encode("utf8", $mech->content());
-  #my $content= $mech->content();
-  my $id= &GenerateID();
-  
-  if ($#{$unique_urls} == -1)
+  my ($uri, $depth, $unique_urls)=@_;
+  if ($#{$unique_urls} == -1)                                             #for first time we save the first url
     {
       $unique_urls->[0]=$uri;
+      $unique_urls->[1]=0;
     }
   
-  
-  print $unique_urls."\n---------------------------\n";
-  
-  
-  
-  my $result=crawler::SEO->insert
-  ({ 
-    id       => $id,
-    link     => $uri,
-    content  => $content,
-    depth    => $depth,
-    vis_cr   => 1
-   });
-  crawler::SEO->dbi_commit();
-  
-  
-  my $domain= &GetDomain($uri);
+  if ($depth!=0)
+    {
+      &GetLinksFromPage($uri,$unique_urls);
 
-  foreach (@page_urls)
-  {
-    if (&IsLink($_->[0]))
-      {
-        if ( (&GetDomain($_->[0])=~m/$domain/) and (&UniqueUrl($_->[0],$unique_urls)) and (&IsNotFile($_->[0])) )
-          {
-            print "da\n";
-            if ( $depth==0 )
-              {
-                $unique_urls->[$#{$unique_urls}+1]=$_->[0];
-              }
-            else
-              {
-                print "    ne\n";
-                #print $_->[0], "-nivo $depth\n";
-                $unique_urls->[$#{$unique_urls}+1]=$_->[0];
-                &Crawler($_->[0],$depth-1,$unique_urls);
-              }
-          }
-      }
-  }  
+      for (my $i=0; $i<=$#{$unique_urls}; $i+=2)
+        {
+          if ($unique_urls->[$i+1]==0)
+            {
+              $unique_urls->[$i+1]=1;
+              &Crawler($unique_urls->[$i],$depth-1, $unique_urls);
+            }
+        }
+    }
 }
+#  use WWW::Mechanize;
+#
+#  my ($uri,$depth,$unique_urls)=@_;
+#  my $mech = WWW::Mechanize->new( agent => 'perl-seo-optimizer 1.00' );
+#
+#  #crawler::SEO->table('sites');
+#  #crawler::SEO->columns(All => qw/id link content depth vis_cr/);
+#
+#  #initialize the list of urls
+#
+#  $mech->get( $uri );
+#  my @page_urls=$mech->links;
+#  my $content= encode("utf8", $mech->content());
+#  #my $content= $mech->content();
+#  my $id= &GenerateID();
+#
+#  if ($#{$unique_urls} == -1)
+#    {
+#      $unique_urls->[0]=$uri;
+#      $unique_urls->[1]=0;
+#    }
+#
+#
+#  print $unique_urls."\n---------------------------\n";
+#
+#
+#
+# # my $result=crawler::SEO->insert
+# # ({
+# #   id       => $id,
+# #   link     => $uri,
+# #   content  => $content,
+# #   depth    => $depth,
+# #   vis_cr   => 1
+# #  });
+# # crawler::SEO->dbi_commit();
+#
+#
+# my $domain= &GetDomain($uri);
+#
+#  foreach (@page_urls)
+#  {
+#   if (&IsLink($_->[0]))
+#     {
+#        if ( (&GetDomain($_->[0])=~m/$domain/) and (&UniqueUrl($_->[0],$unique_urls)) and (&IsNotFile($_->[0])) )
+#         {
+#            #print "da\n";
+#            if ( $depth!=0 )
+#              {
+#                $unique_urls->[$#{$unique_urls}+1]=$_->[0];
+#                $unique_urls->[$#{$unique_urls}+2]=0;
+#             }
+#          }
+#      }
+#  }
+#  for (my $i=0; $i<=$#{$unique_urls}; $i+=2)
+#    {
+#      if ($unique_urls->[$i+1]==0)
+#        {
+#          $unique_urls->[$i+1]=1;
+#    #      &Crawler($unique_urls->[$i],$depth-1,$unique_urls)
+#        }
+#    }
+#
+#  print $_."\n" foreach ( @{$unique_urls} );
+#
+#}
 
 
 
 my @list_url;
 
-print "--------------------------------------------\n";
-&Crawler("http://mobile.bg",1, \@list_url);
+#print "--------------------------------------------\n";
+&Crawler("http://mobile.bg",7, \@list_url);
 
 #print $_, "\n" foreach (@list_url);
 
