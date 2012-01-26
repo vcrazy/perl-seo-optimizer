@@ -9,4 +9,4 @@ my $json_text   = <$fh>;
 
 my $perl_scalar = decode_json($json_text);
 
-print %{$perl_scalar->{'glossary'}};
+print %{$perl_scalar->{'settings'}{'content'}{'js'}}; # как да взема на това стойността на ключ max_size
