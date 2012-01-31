@@ -10,7 +10,9 @@
 			"flash": {
 				"use": false
 			},
-            "max_length": 100000,
+            "content": {
+                "max_length": 100000
+            },
 			"title": {
 				"max_length": 127
 			},
@@ -28,7 +30,7 @@
 				}
 			},
 			"urls": {
-				"max_length": 127,
+				"max_length": 20,
 				"max_special_chars": 10,
 				"max_slashes": 5,
 				"max_outgoing": "15%"
