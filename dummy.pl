@@ -27,7 +27,7 @@ sub rules($ $)
 	{
 		foreach $key (keys %hash)
 		{
-			&rules($key, %{$hash{$key}}); # how to call the function
+			&rules($key, $hash{$key}); # how to call the function
 		}
 	}
 	else # is scalar..
@@ -36,5 +36,5 @@ sub rules($ $)
 	}
 }
 
-&rules('1', %{$perl_scalar->{'settings'}});
+&rules('1', $perl_scalar->{'settings'});
 
