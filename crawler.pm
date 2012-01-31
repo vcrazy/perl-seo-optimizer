@@ -67,6 +67,15 @@ sub IsSubLink
 {
   use strict;
   my ($page, $link)=@_;
+  if ($page =~ m/(((https?:\/\/)|(www)).*\/)/)
+    {
+      $page=$&;
+    }
+  else
+    {
+      $page.="/";
+    }
+  
   if ($$link=~m/^(\/)/)
     {
       $page=substr($page,0,-1) if($page=~m/\/$/);
@@ -75,9 +84,21 @@ sub IsSubLink
     }
   elsif ($$link=~m/^(\#)/ and $page!~m/#/)
     {
-      $page=substr($page,0,-1) if($page=~m/\/$/);
-      $$link="$page/$$link";
+      $$link="$page$$link";
       return 1;
+    }
+  else
+    {
+      my @files_lib=('.php','.html','.asp');
+      foreach (@files_lib)
+        {
+          if ($$link=~m/$_/)
+            {
+               $$link="$page$$link";
+               return 1
+            }
+
+        }
     }
   return 0;
 }
@@ -132,7 +153,7 @@ sub GetLinksFromPage
   my $domain=&GetDomain($link);
   foreach ( $mech->links )
     {
-      if (&IsLink($_->[0]) or &IsSubLink($link,\$_->[0]))                 #find if is really a link or is sublink. In case sublink we make it full link.
+      if ( &IsLink($_->[0]) or &IsSubLink($link,\$_->[0]) )                 #find if is really a link or is sublink. In case sublink we make it full link.
         {
           if( (&GetDomain($_->[0])=~m/$domain/) and (&UniqueUrl($_->[0],$unique_urls)) and (&IsNotFile($_->[0])) )
             {
@@ -244,7 +265,7 @@ sub Crawler
 my @list_url;
 
 #print "--------------------------------------------\n";
-&Crawler("http://itschool.ganev.bg/",4, \@list_url);
+&Crawler("http://mobile.bg/",2, \@list_url);
 
 #print $_, "\n" foreach (@list_url);
 
