@@ -1,0 +1,1537 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>АБВ Поща</title> 
+    <script type="text/javascript">
+    sas_tmstp=Math.round(Math.random()*10000000000);sas_masterflag=1;
+    function SmartAdServer(sas_pageid,sas_formatid,sas_target) {
+     if (sas_masterflag==1) {sas_masterflag=0;sas_master='M';} else {sas_master='S';};
+     document.write('<scr'+'ipt src="http://diff3.smartadserver.com/call/pubj/' + sas_pageid + '/' + sas_formatid + '/' + sas_master + '/' + sas_tmstp + '/' + escape(sas_target) + '?"></scr'+'ipt>');
+    }
+    </script> 
+    <link rel="stylesheet" type="text/css" href="css/abv.css" />        
+    <script type="text/javascript" src="js/abv.js"></script>      
+    <link href="http://img.abv.bg/favicon.ico" rel="shortcut icon" />
+  </head> 
+  <body>
+
+  <!--COUNT PIXEL-->
+  <img id="countPx" src="http://img.abv.bg/i/p.gif" alt="" />
+  <!--\COUNT PIXEL-->  
+    <!--FF EXTENSION PROMO-->
+    <div id="FirefoxExtension">
+      <div class="logo"></div>
+      <a href="http://promo.abv.bg/ff_Ext/"  target="_blank" class="link">АБВ добавка за Firefox - бъдете в час с писмата си!</a>
+      <div class="closebutton" onclick="$('#FirefoxExtension').css('display', 'none');$.cookie('ff_ext',1,{ expires: 90 });"></div>
+    </div>
+
+    <!--\FF EXTENSION PROMO-->
+     <!--CHROME EXTENSION PROMO-->
+    <div id="chrome_extension">
+      <div id="chrome_extension_bg_in">
+        <div id="chrome_extension_content_holder">
+          <img src="http://img.abv.bg/dHome/Promo/chrome_extension/chrome_fasha_logo.gif" alt="" title="" class="logo"/>
+          <a href="https://chrome.google.com/webstore/detail/cpbekonjicgkldkmopnamgglbfaiojje" class="link" target="_blank"></a>
+          <div id="chrome_extension_close" onclick="$('#chrome_extension').hide();$.cookie('chrome_ext',1,{ expires: 90 });" ></div>
+        </div>
+
+      </div>      
+    </div>
+    <!--\CHROME EXTENSION PROMO-->
+    <!--WRAPPER-->
+  
+<div id="wrapper">
+<!--CONTENT-->
+    <div id="content">
+      <!--HEADER-->
+      <div id="header">
+        <div id="leftside">    
+        <span class="sel">АБВ Поща</span>
+
+        <a href="http://dox.bg" target="_blank">DOX</a>
+        <a target="_blank" href="http://apps.abv.bg">АБВ на твой домейн</a>
+        </div>
+        <p id="rightside">
+          <a href="https://passport.abv.bg/acct/passport/registration"><strong>Регистрация в АБВ</strong></a>
+          <a  target="_blank" href="http://help.abv.bg/?cat=3">Помощ</a>
+        </p>                                                      
+    		<br class="clear" /> 
+    		<h1><a href="http://abv.bg">АБВ Поща</a></h1>
+
+    		<div id="search">
+    			<strong>Търсене в Интернет</strong>
+    			<div class="powered"></div>
+    			<br class="clear" />
+    			<form name="GForm1" method="get" action="http://search.abv.bg/search.php" target="_blank" onSubmit="return check('GForm1');">
+    		        <input type="hidden" name="start" value="0" />
+    		        <input type="hidden" name="num" value="10" />
+    		        <input type="hidden" name="abv" value="1" />
+
+    		        <input type="hidden" name="ah" value="home" />
+    				<input type="text" value="" name="q" class="txt" />
+    				<input  type="submit" class="submit" value=""/>
+    				<br class="clear" />
+    				<div class="l">
+    				<input  type="radio" class="radio" name="lr" checked="true" id="net1" /><label for="net1">в Мрежата</label>
+    				&nbsp;
+    				<input  type="radio" class="radio"  name="lr" value="lang_bg" id="bg1" /> <label for="bg1">в БГ страници</label></div>
+
+    				<div class="r"><a  target="_blank" href="http://search.abv.bg/advanced_search.php">Подробно търсене</a></div>
+    			</form>
+    		</div>         
+      </div>	
+      <!--\HEADER-->     
+      <!--LOGIN-->
+  	  <div id="login">
+  	  	<div id="loginform">
+  	  		<h2><div class="l">ВХОД В АБВ ПОЩА</div><div class="r"><a href="http://m.abv.bg/" target="_blank" class="mobile">Мобилна версия</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="https://passport.abv.bg/acct/passport/registration">Регистрация</a></div></h2>
+
+  			  <form name="LogInForm" method="post" action="https://passport.abv.bg/acct/passport/login">
+          <input value="mail01.abv.bg" name="host" type="hidden" />
+          <input value="mail" name="service" type="hidden" />
+          <label>АБВ Потребител</label>
+          <input  type="text"  name="username" tabindex="1" class="txt" />
+          <br class="clear" />
+          <span>* за gbg.bg и gyuvetch.bg изпишете целия имейл</span>
+          <br class="clear" />
+
+          <br />
+          <label>Парола</label>
+          <input type="password" name="password" tabindex="2" class="txt" />
+          <br class="clear" />
+          <input tabindex="3" type="submit" value="" class="submit"/>
+           <a href="https://passport.abv.bg/acct/passport/lostpass?qstr=http://www.abv.bg" >Забравена парола</a>       
+          </form>
+          <div id="promo">
+
+            <a href="http://a.abv.bg/www/delivery/ck.php?oaparams=2__bannerid=42932__zoneid=63__oadest=http://promo.abv.bg/chat/" target="_blank"></a>
+          </div>
+  	  	</div>
+  	  	<!--BANNER 300x250-->
+    		<div id="banner_300x250">
+    		<div id="adtext">Реклама</div>
+    		<div id="dynamicpart">
+    		</div>
+
+    			<script type="text/javascript">
+    				sas_pageid='13784/99400';	// Page : abv.bg/homepage
+    				sas_formatid=6062;		// Format : RECT 300x250
+    				sas_target='';			// Targeting
+    				SmartAdServer(sas_pageid,sas_formatid,sas_target);    				
+    			</script>				
+    		</div>
+    	  <!--\BANNER 300x250-->
+  	  </div>
+  	  <!--\LOGIN-->
+<div id="nonstandartad"> 
+  
+</div>
+<div id="resetsettings">
+  	   <div class="clicker">Възстанови първоначалната подредба на блоковете</div>
+  </div>
+
+  	  <div id="blockholder">
+  	   <div id="leftcolumn" class="column widget-place">
+	   
+  	     <div class="block b1 widget movable">
+  	       <div class="blocktop"></div>
+  	       <h2 class="bheader"><div class="l">НОВИНИ&nbsp;&nbsp;<a href="http://vesti.bg" target="_blank">Vesti.bg</a></div><div class="r"><div class="plus vesti"></div><div class="minus vesti"></div></div></h2>
+  	       <div class="content news">
+  	         <div class="tabs"><span class="tab sel">Новини</span>&nbsp;|&nbsp;<span class="tab">Фото</span></div>
+
+  	         <div class="tabcontents">
+				 <div class="tabcontent">
+<div class="imgholder">
+<a target="_blank" href="#">
+<img width="125" height="125" alt="" onerror="err(this)" src="http://a.img.abv.bg/home/va2056b4896ab1d25e39664343e93eb07.jpg" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+</a>
+
+</div>
+<div class="links vesti">
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4518511">Още по-голям студ през следващите дни</a>
+<div class="newsimg">http://a.img.abv.bg/home/va2056b4896ab1d25e39664343e93eb07.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4518451">Състоянието на Дим Дуков е стабилизирано</a>
+<div class="newsimg">http://a.img.abv.bg/home/v67ce94766bb56d725d077a03bf29d6fc.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4518271">Пак жертва на операция на сливици във Варна</a>
+<div class="newsimg">http://a.img.abv.bg/home/v1cbbdc461839ab1d43feed3bd55e4237.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4517531">С паметник приживе</a>
+<div class="newsimg">http://a.img.abv.bg/home/vebaf5baa655c13e382389715201f6b4a.jpg</div>
+
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4517431">Новите тайни на щастливия брак</a>
+<div class="newsimg">http://a.img.abv.bg/home/v65732666cbc9e28e68e20d7dde816cc0.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4518311">Само глоба за възпитателя, пребил дете от дом</a>
+<div class="newsimg">http://a.img.abv.bg/home/ve42faf31dc9b8f063bcd925610ab7ef0.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4517851">Момичета се тровят с успокоителни в училище</a>
+<div class="newsimg">http://a.img.abv.bg/home/v3334aaaf91d6fd836cea502700573d5e.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4518091">Бивш румънски премиер бе осъден за корупция</a>
+<div class="newsimg">http://a.img.abv.bg/home/v9acace86e5ad43e79325c2bf0d9891e4.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4518151">Имаш право на три желания</a>
+
+<div class="newsimg">http://a.img.abv.bg/home/vecb208207484b99568bec993778a323a.jpg</div>
+<a target="_blank" href="http://www.vesti.bg/index.phtml?tid=40&amp;oid=4517551">По бельо при минус 11</a>
+<div class="newsimg">http://a.img.abv.bg/home/v7786e9b229b295e2cd9377a4e421fac3.jpg</div>
+</div>
+</div>
+    	         <div class="tabcontent">
+<div id="slider_1" class="slider">
+<ul>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69692">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/vpa10710dd2f4760f1b63c002614b4c782.jpg" alt="Под прикритие - последен снимачен ден" />
+
+<div class="newsimg">http://c.img.abv.bg/home/vpa10710dd2f4760f1b63c002614b4c782.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69692">Под прикритие - последен снимачен ден</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69752">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/vp79da49e185d3a3181dbcba71c593de1f.jpg" alt="Японско меню" />
+<div class="newsimg">http://c.img.abv.bg/home/vp79da49e185d3a3181dbcba71c593de1f.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69752">Японско меню</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69682">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/vped3c0ce2ca3182cecb8c44cfa6b5a1a4.jpg" alt="Екологично и топло" />
+<div class="newsimg">http://c.img.abv.bg/home/vped3c0ce2ca3182cecb8c44cfa6b5a1a4.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69682">Екологично и топло</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69672">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Фестивал на маскарадните игри в Перник" />
+
+<div class="newsimg">http://c.img.abv.bg/home/vp9f6c17dacbc01561eb6fbe927495bd8d.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69672">Фестивал на маскарадните игри в Перник</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69642">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Магистралите ''Люлин'' и 'Струма'', 27 януари" />
+<div class="newsimg">http://c.img.abv.bg/home/vp3fb4b2c63e3ec76e816f317c54429d35.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69642">Магистралите ''Люлин'' и 'Струма'', 27 януари</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69622">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Сбогуваме се с големия Коста Цонев" />
+<div class="newsimg">http://c.img.abv.bg/home/vp65ea249e62064ba22dc8e3a9df63a111.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69622">Сбогуваме се с големия Коста Цонев</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69532">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Зима София" />
+
+<div class="newsimg">http://c.img.abv.bg/home/vp91a90b7fc974919a4ac790448f3f34bb.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69532">Зима София</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69552">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Още от седмицата на висшата мода в Париж" />
+<div class="newsimg">http://c.img.abv.bg/home/vp7fa646cdb5d5c7f3e13d36fda1553bae.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69552">Още от седмицата на висшата мода в Париж</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69542">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Народен спорт – бой на камили" />
+<div class="newsimg">http://c.img.abv.bg/home/vp7363753d901ca405e30349127eadb313.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vesti.bg/?tid=20&amp;oid=12300&amp;galid=69542">Народен спорт – бой на камили</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+    	      </div>
+
+  	       </div>
+  	        <br class="clear" />
+  	     </div>
+  	     <div class="block b2 widget movable">
+  	       <div class="blocktop"></div>
+  	       <h2 class="bheader"><div class="l">СПОРТ&nbsp;&nbsp;<a href="http://sportni.bg" target="_blank">Sportni.bg</a></div><div class="r"><div class="plus sportni"></div><div class="minus sportni"></div></div></h2>
+  	       <div class="content sport">
+  	         <div class="tabs"><span class="tab sel">Новини</span>&nbsp;|&nbsp;<span class="tab">Фото</span>&nbsp;|&nbsp;<span class="tab">Видео</span></div>
+
+  	         <div class="tabcontents">
+    	        <div class="tabcontent">
+<div class="imgholdersport">
+<a target="_blank" href="#">
+<img width="125" height="125" alt="" onerror="err(this)" src="http://b.img.abv.bg/home/s9d1d09ace00cb96c319256c667869412.jpg" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+<img width="125" height="125" alt="" onerror="err(this)" src="http://img.abv.bg/i/p.gif" />
+</a>
+
+</div>
+<div class="links sportni">
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726569">В Левски се бият, гонят виновниците</a>
+<div class="newsimg">http://b.img.abv.bg/home/s9d1d09ace00cb96c319256c667869412.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726578">Моуриньо може да смени Фъргюсън още това лято</a>
+<div class="newsimg">http://b.img.abv.bg/home/seb01cf235f5be93098a0bcf446021766.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726574">В Турция: Спас Делев е разочарование</a>
+<div class="newsimg">http://b.img.abv.bg/home/s26a8030cbcdc3edd7817b83b174c12fe.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726571">Нова промяна в плановете на ЦСКА</a>
+<div class="newsimg">http://b.img.abv.bg/home/s498f80352f5a0ea3ba2114f02c117131.jpg</div>
+
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726575">Митко Бербатов на 31!</a>
+<div class="newsimg">http://b.img.abv.bg/home/s1ddada121dbabae682c2f005d0174429.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726504">Дарко направил дете на Мис България 2010</a>
+<div class="newsimg">http://b.img.abv.bg/home/sa3275f98192e1f37a332fc444fd04643.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726579">Спийд е говорил за самоубийството си</a>
+<div class="newsimg">http://b.img.abv.bg/home/s6820138472ef017465bd4bc8e6c0a4f9.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726577">Смесената щафета на България зае 7-мо място на Евро 2012</a>
+<div class="newsimg">http://b.img.abv.bg/home/s5512acb298a23169e0540d3b051cae0b.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726576">Още един подписа с Локо София</a>
+
+<div class="newsimg">http://b.img.abv.bg/home/sbc370d8cfc1043098d355d467f2b0d7d.jpg</div>
+<a target="_blank" href="http://www.sportni.bg/index.phtml?tid=40&amp;oid=2726573">Цеков, Спасов и Танко подписаха с Локо Пд</a>
+<div class="newsimg">http://b.img.abv.bg/home/s54c5212070547e11930c3dfea3a37730.jpg</div>
+</div>
+</div>
+    	        <div class="tabcontent">
+<div id="slider_2" class="slider">
+<ul>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56602">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/spa4bff90cfd0585ba1020b5375201aa6d.jpg" alt="Гостите на Star Team For the Children - Bansko " />
+
+<div class="newsimg">http://c.img.abv.bg/home/spa4bff90cfd0585ba1020b5375201aa6d.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56602">Гостите на Star Team For the Children - Bansko </a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56592">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/sp53163f19ab2a5c32a925543763570db4.jpg" alt="Star Team For the Children - Bansko 3" />
+<div class="newsimg">http://c.img.abv.bg/home/sp53163f19ab2a5c32a925543763570db4.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56592">Star Team For the Children - Bansko 3</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56582">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/spbe73020cf38b214989dee9d7099abec0.jpg" alt="Star Team For the Children - Bansko 2" />
+<div class="newsimg">http://c.img.abv.bg/home/spbe73020cf38b214989dee9d7099abec0.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56582">Star Team For the Children - Bansko 2</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56572">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Star Team For the Children - Bansko 1" />
+
+<div class="newsimg">http://c.img.abv.bg/home/sp450ff95c03e9b977e2cd13d161670183.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56572">Star Team For the Children - Bansko 1</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56562">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Star Team For the Children" />
+<div class="newsimg">http://c.img.abv.bg/home/sp5354eaa6bef7fb54aaef8c90e0463593.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56562">Star Team For the Children</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56192">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="ЦСКА - Аркасспор 0:3" />
+<div class="newsimg">http://c.img.abv.bg/home/sp1325a4ac424273669383323d72f04b85.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=56192">ЦСКА - Аркасспор 0:3</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=55782">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Локомотив София започна зимната подготовка" />
+
+<div class="newsimg">http://c.img.abv.bg/home/sp07562d6d45d64c5aa00885d322009d2c.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=55782">Локомотив София започна зимната подготовка</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=55682">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Славия с първа тренировка за 2012" />
+<div class="newsimg">http://c.img.abv.bg/home/sp5e1464cc8c262722f2079e96b77be9d9.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=55682">Славия с първа тренировка за 2012</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=55502">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Лудогорец представи новите си футболисти" />
+<div class="newsimg">http://c.img.abv.bg/home/sp9517494f8e26fadf7c116221a0920a6d.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10220&amp;galid=55502">Лудогорец представи новите си футболисти</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+    	        <div class="tabcontent">
+
+<div id="slider_3" class="slider">
+<ul>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56642">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/sv4717eb0d2a423a2b8e0431e3663bdb99.jpg" alt="Мария Рийш с първа победа за сезона" />
+<div class="newsimg">http://c.img.abv.bg/home/sv4717eb0d2a423a2b8e0431e3663bdb99.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56642" title="Мария Рийш с първа победа за сезона">Мария Рийш с първа победа за сезона</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56622">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/sve69d902d47e83ca4823396a603cdffc0.jpg" alt="Васил Евтимов: Утре е най-важният ни мач" />
+
+<div class="newsimg">http://c.img.abv.bg/home/sve69d902d47e83ca4823396a603cdffc0.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56622" title="Васил Евтимов: Утре е най-важният ни мач">Васил Евтимов: Утре е най-важният ни мач</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56632">
+<img width="120" height="90" border="0" src="http://c.img.abv.bg/home/sve00d0f8d4876dba3bced3eba33b09045.jpg" alt="Новак Джокович отново №1 в Мелбърн" />
+<div class="newsimg">http://c.img.abv.bg/home/sve00d0f8d4876dba3bced3eba33b09045.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56632" title="Новак Джокович отново №1 в Мелбърн">Новак Джокович отново №1 в Мелбърн</a>
+</div>
+
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56612">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Георгиев: Победата над Лукойл беше важна за самочувствието ни" />
+<div class="newsimg">http://c.img.abv.bg/home/sv7b581292ec10929f20a8fa8ad6015459.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56612" title="Георгиев: Победата над Лукойл беше важна за самочувствието ни">Георгиев: Победата над Лукойл беше важна за самочувствието ни</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56552">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Валенсия разпиля Леванте за Купата на Краля" />
+
+<div class="newsimg">http://c.img.abv.bg/home/sv7a39d450e9be05247424c30071157e25.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56552" title="Валенсия разпиля Леванте за Купата на Краля">Валенсия разпиля Леванте за Купата на Краля</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56542">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Орландо загуби от Бостън" />
+<div class="newsimg">http://c.img.abv.bg/home/sv35a534c0b6365fd13828f77a62271de2.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56542" title="Орландо загуби от Бостън">Орландо загуби от Бостън</a>
+</div>
+
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56532">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Барселона загуби в Тел Авив от Макаби" />
+<div class="newsimg">http://c.img.abv.bg/home/sv7c3e17e0392cd978ffea842b0b05f2f7.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56532" title="Барселона загуби в Тел Авив от Макаби">Барселона загуби в Тел Авив от Макаби</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56522">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Милан победи Лацио и е на 1/2-финал за Купата" />
+
+<div class="newsimg">http://c.img.abv.bg/home/svdf6c1dccb610a8dc18a61a1197d8ef42.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56522" title="Милан победи Лацио и е на 1/2-финал за Купата">Милан победи Лацио и е на 1/2-финал за Купата</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56512">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Барикело смята да се пробва в Щатите" />
+<div class="newsimg">http://c.img.abv.bg/home/sv65c3af91bcbc9cb8c9c55e94d9d0af6e.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.sportni.bg/?tid=20&amp;oid=10240&amp;galid=56512" title="Барикело смята да се пробва в Щатите">Барикело смята да се пробва в Щатите</a>
+</div>
+
+</div>
+</li>
+</ul>
+</div>
+</div>
+    	      </div>
+  	       </div>
+  	        <br class="clear" />
+  	     </div>
+  	     <div class="block b3 widget movable">
+  	       <div class="blocktop"></div>
+
+  	       <h2 class="bheader">ЗАБАВНО</h2>
+  	       <div class="content entertainment">
+  	         <div class="tabs">
+              <span class="tab sel">Видео</span>&nbsp;|&nbsp;<span class="tab">Игри</span>&nbsp;|&nbsp;<span class="tab">Вицове</span>&nbsp;|&nbsp;<span class="tab">Картички</span>
+              <a class="prlink" target="_blank" href="http://vbox7.com/">Vbox7.com</a>
+
+              <a class="prlink" target="_blank" href="http://vgames.bg">Vgames.bg</a>
+              <a class="prlink" target="_blank" href="http://vicove.gbg.bg">Vicove.gbg.bg</a>
+              <a class="prlink" target="_blank" href="http://vcards.bg">Vcards.bg</a>
+             </div>
+  	         <div class="tabcontents">  	           
+<div class="tabcontent">
+<div id="slider_4" class="slider">
+<ul>
+<li>
+
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:a1b4366676">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vb43bd269d5c3ebbe1f506a96a90a77b3d.jpg" alt="Калин Вельов - Сън" />
+<div class="newsimg">http://img.abv.bg/home/vb43bd269d5c3ebbe1f506a96a90a77b3d.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:a1b4366676">Калин Вельов - Сън</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:a00a59fb25">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vb801a994124283c18f4d4611a6fec3057.jpg" alt="Румънеца и Енчев - Моята жена 2" />
+<div class="newsimg">http://img.abv.bg/home/vb801a994124283c18f4d4611a6fec3057.jpg</div>
+</a>
+
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:a00a59fb25">Румънеца и Енчев - Моята жена 2</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:1af21075">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vb8ddd4ed125a7e9a14f6be98ad76ee014.jpg" alt="Умения С Кристална Топка " />
+<div class="newsimg">http://img.abv.bg/home/vb8ddd4ed125a7e9a14f6be98ad76ee014.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:1af21075">Умения С Кристална Топка </a>
+</div>
+</div>
+</li>
+<li>
+
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:d010e1a437">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Куршум се върти в леда!" />
+<div class="newsimg">http://img.abv.bg/home/vb9c4ef009a620bca5d4b793decc2b201d.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:d010e1a437">Куршум се върти в леда!</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:2068755a74">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Страхотно представление.." />
+<div class="newsimg">http://img.abv.bg/home/vbef8b912094b3a9585813d0029062cb5d.jpg</div>
+</a>
+
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:2068755a74">Страхотно представление..</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:97155e7143">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Да останеш заровен под снега .." />
+<div class="newsimg">http://img.abv.bg/home/vbb90a596ffcb4e5efd90c041d7146cfcc.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:97155e7143">Да останеш заровен под снега ..</a>
+</div>
+</div>
+</li>
+<li>
+
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:a71a4b8603">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Куче кърми две палави козлета ! Смях !" />
+<div class="newsimg">http://img.abv.bg/home/vb26eada11bf3c1103356ed75f541f3b3b.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:a71a4b8603">Куче кърми две палави козлета ! Смях !</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:ad207756d2">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Remi Gaillard се завърна !" />
+<div class="newsimg">http://img.abv.bg/home/vbdde90c0711f4eca1fe05de9e95ad4405.jpg</div>
+</a>
+
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:ad207756d2">Remi Gaillard се завърна !</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vbox7.com/play:c4468e4fd0">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Добротата у човека" />
+<div class="newsimg">http://img.abv.bg/home/vba0f69e5394829b07e62deb02bc8b3e80.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vbox7.com/play:c4468e4fd0">Добротата у човека</a>
+</div>
+</div>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="tabcontent">
+<div id="slider_5" class="slider">
+<ul>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/rebusi-i-pyzeli-igri/23867/diamond-chain">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vg99883cc9685f60d4735b31516e13b1f2.jpg" alt="Диамантена верига" />
+<div class="newsimg">http://img.abv.bg/home/vg99883cc9685f60d4735b31516e13b1f2.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vgames.bg/igra/rebusi-i-pyzeli-igri/23867/diamond-chain">Диамантена верига</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/action-igri/23893/vklax">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vg3fe73702059842896c06572b71aad431.jpg" alt="Цветни плочки" />
+<div class="newsimg">http://img.abv.bg/home/vg3fe73702059842896c06572b71aad431.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vgames.bg/igra/action-igri/23893/vklax">Цветни плочки</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/strategicheski-igri/23853/megacity">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vgd97e82841a8c714e6b6056987dc3dc22.jpg" alt="Мегаполис" />
+<div class="newsimg">http://img.abv.bg/home/vgd97e82841a8c714e6b6056987dc3dc22.jpg</div>
+</a>
+<br class="clear" />
+
+<a target="_blank" href="http://vgames.bg/igra/strategicheski-igri/23853/megacity">Мегаполис</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/rebusi-i-pyzeli-igri/23861/winter-mood">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Зимно настроение" />
+<div class="newsimg">http://img.abv.bg/home/vge36f09e6f4b69d376f322b93d15887f5.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vgames.bg/igra/rebusi-i-pyzeli-igri/23861/winter-mood">Зимно настроение</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/rebusi-i-pyzeli-igri/23873/fruit-jigsaw-tournament">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Турнир плодове мозайка" />
+<div class="newsimg">http://img.abv.bg/home/vg50074bd76e0530a8c61cc763ce162691.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vgames.bg/igra/rebusi-i-pyzeli-igri/23873/fruit-jigsaw-tournament">Турнир плодове мозайка</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/igri-za-strelba/23851/hit-the-troll">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Удари трола" />
+<div class="newsimg">http://img.abv.bg/home/vge3d76b746946f120c0c41fed5960c065.jpg</div>
+</a>
+<br class="clear" />
+
+<a target="_blank" href="http://vgames.bg/igra/igri-za-strelba/23851/hit-the-troll">Удари трола</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/logicheski-igri/23869/escape-from-christmas-mini-rooms">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Бягство от коледните стаи" />
+<div class="newsimg">http://img.abv.bg/home/vg43936a4f6ff4d8fe0136d987470dfc9c.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vgames.bg/igra/logicheski-igri/23869/escape-from-christmas-mini-rooms">Бягство от коледните стаи</a>
+</div>
+
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/3D-igri-v-mreja/23804/5strike">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="5strike" />
+<div class="newsimg">http://img.abv.bg/home/vg4819754a5d6618caad9279b2fca7d04e.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://vgames.bg/igra/3D-igri-v-mreja/23804/5strike">5strike</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://vgames.bg/igra/igri-za-pamet/23889/sunshine-beach">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Изгрев на плажа" />
+<div class="newsimg">http://img.abv.bg/home/vgc25d9b8abcd9f06aa7ffe48af8ca1374.jpg</div>
+</a>
+<br class="clear" />
+
+<a target="_blank" href="http://vgames.bg/igra/igri-za-pamet/23889/sunshine-beach">Изгрев на плажа</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="tabcontent">
+
+Разбира се, че щастието не е в парите. Но по-добре да плачеш в лимузината, отколкото в градския транспорт.
+
+  </div>
+<div class="tabcontent">
+<div id="slider_6" class="slider">
+<ul>
+<li>
+<div class="cellholder">
+
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/14">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vc5529ce4f8e49b826f69bba08b1a083ef.jpg" alt="Бонбони" />
+<div class="newsimg">http://img.abv.bg/home/vc5529ce4f8e49b826f69bba08b1a083ef.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/14">Бонбони</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/8">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vcbf0938985f14b004a776aca44e58ffd3.jpg" alt="Имен ден" />
+<div class="newsimg">http://img.abv.bg/home/vcbf0938985f14b004a776aca44e58ffd3.jpg</div>
+</a>
+<br class="clear" />
+
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/8">Имен ден</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/4">
+<img width="120" height="90" border="0" src="http://img.abv.bg/home/vc9f1da6adc7d08a83c06ea1fd225c82b7.jpg" alt="Имен ден" />
+<div class="newsimg">http://img.abv.bg/home/vc9f1da6adc7d08a83c06ea1fd225c82b7.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/4">Имен ден</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/11">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Честит имен ден!" />
+<div class="newsimg">http://img.abv.bg/home/vc0b3ddf0701cd3cbdf43d6e7954b6da86.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/11">Честит имен ден!</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/0">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Имен ден 2" />
+<div class="newsimg">http://img.abv.bg/home/vcf75e8e7064b80a501b89ce34363de2b9.jpg</div>
+</a>
+<br class="clear" />
+
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/0">Имен ден 2</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/1">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Имен ден" />
+<div class="newsimg">http://img.abv.bg/home/vcfb9cd80e07ae11675027d1597f5f86e9.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/1">Имен ден</a>
+</div>
+</div>
+</li>
+<li>
+<div class="cellholder">
+
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/7">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Имен ден" />
+<div class="newsimg">http://img.abv.bg/home/vc00f3700ba56f8e0e23c02f882c50f0ad.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/7">Имен ден</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/13">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Честит имен ден!" />
+<div class="newsimg">http://img.abv.bg/home/vcadcc34a04ac59e2e1936e63cec3cb236.jpg</div>
+</a>
+<br class="clear" />
+
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/13">Честит имен ден!</a>
+</div>
+<div class="cell">
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/6">
+<img width="120" height="90" border="0" src="http://img.abv.bg/i/p.gif" alt="Имен ден" />
+<div class="newsimg">http://img.abv.bg/home/vc2d97a2befa2062b60303eb37a631d9a8.jpg</div>
+</a>
+<br class="clear" />
+<a target="_blank" href="http://www.vcards.bg/home/preview/imen-den/6">Имен ден</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+</div>
+  	       </div>
+  	     </div>
+  	      <br class="clear" />
+  	   </div>
+
+
+  	   </div>
+  	   <div id="rightcolumn" class="column widget-place">
+	   
+<div class="block b4 widget movable">
+
+  	       <div class="blocktop"></div>
+  	       <h2 class="bheader">ДАТА / ЧАС</h2>
+  	       <div class="content date">
+  	         <div id="flashclock"></div>
+  	         <div id="dateholder">
+  	         <div id="cdayofweek"></div>
+             <div id="cdate"></div>            
+             <div class="center">
+
+               <span id="cmonth"></span>
+               <span id="cyear"></span>
+             </div>             
+             </div>
+             <div id="calendar">             
+             </div>
+              <br class="clear" />
+             <div id="holydaymessage">
+              Празник е! Поздрави любим човек с картичка от <a id="vcardslinksecond"  href="http://vcards.bg" target="_blank">Vcards.bg</a>
+
+              </div>
+  	         <script type="text/javascript">
+  	          getcalendar();
+             </script>
+             <!--bet at home-->
+             <div id="bahframe"></div>
+             <br class="cb" />
+             <!--bet at home-->           
+             <div id="prompt">
+              <!--div id="transparent">
+                <a href="http://abv.bg" id="promptlink">
+                </a>
+              </div-->
+              Днес е <span id="whichday"></span>!<br /> Поздрави с картичка от <a id="vcardslink" href="http://vcards.bg" target="_blank" >Vcards.bg</a>
+
+             </div>  
+  	       </div>
+
+  	       <br class="clear" />
+  	     </div>
+<div class="block b5 widget movable">
+<div class="blocktop"> </div>
+<h2 class="bheader">
+<div class="l">ВРЕМЕТО  <a href="http://sinoptik.bg" target="_blank">Sinoptik.bg</a>
+</div>
+<div class="r">
+
+<div class="settings"> </div>
+</div>
+</h2>
+<div class="settingspanel weather">
+<ul>
+<li>София</li>
+<li>Бургас</li>
+<li>Ахтопол</li>
+<li>Черни връх</li>
+<li>Пловдив</li>
+<li>Русе</li>
+
+<li>Шабла</li>
+<li>Мусала</li>
+<li>Варна</li>
+<li>Плевен</li>
+<li>Сандански</li>
+<li>Боровец</li>
+</ul>
+<br class="clear" />
+<input type="text" id="searchinputweather" class="txt" value="Избери град от Европа, Америка..." />
+<div id="search_weather">
+<img src="http://img.abv.bg/dHome/dragimages/searchwh.gif" alt="" />
+
+</div>
+</div>
+<div id="weathersearchresults">
+<p>
+            Няма намерени резултати.
+            </p>
+</div>
+<div class="content weather">
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n000.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/sofia-bulgaria-100727011">
+
+<strong>София</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/sofia-bulgaria-100727011/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/2.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Ясно</strong>
+<br />
+<span id="flike">Усеща се като -16°</span>
+
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n100.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/burgas-bulgaria-100732770">
+<strong>Бургас</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/burgas-bulgaria-100732770/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/0.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Предимно ясно</strong>
+<br />
+<span id="flike">Усеща се като -19°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n412.gif</div>
+
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/akhtopol-bulgaria-100733722">
+<strong>Ахтопол</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/akhtopol-bulgaria-100733722/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/6.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Облачно със слаб снеговалеж</strong>
+
+<br />
+<span id="flike">Усеща се като -14°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n000.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/cherni-vrah-bulgaria-307000006">
+<strong>Черни връх</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/cherni-vrah-bulgaria-307000006/10-days">10-дневна прогноза</a>
+
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/4.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Ясно</strong>
+<br />
+<span id="flike">Усеща се като -20°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n000.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/plovdiv-bulgaria-100728193">
+<strong>Пловдив</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/plovdiv-bulgaria-100728193/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/4.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+
+</div>
+<br class="clear" />
+<strong id="condition">Ясно</strong>
+<br />
+<span id="flike">Усеща се като -14°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n100.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/ruse-bulgaria-100727523">
+
+<strong>Русе</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/ruse-bulgaria-100727523/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/5.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Предимно ясно</strong>
+<br />
+<span id="flike">Усеща се като -21°</span>
+
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n312.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/shabla-bulgaria-100727329">
+<strong>Шабла</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/shabla-bulgaria-100727329/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/2.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Предимно облачно, слаб сняг</strong>
+<br />
+<span id="flike">Усеща се като -22°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n000.gif</div>
+
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/musala-bulgaria-305021306">
+<strong>Мусала</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/musala-bulgaria-305021306/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/5.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Ясно</strong>
+
+<br />
+<span id="flike">Усеща се като -20°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n100.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/varna-bulgaria-100726050">
+<strong>Варна</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/varna-bulgaria-100726050/10-days">10-дневна прогноза</a>
+
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Предимно ясно</strong>
+<br />
+<span id="flike">Усеща се като -19°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n000.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/pleven-bulgaria-100728203">
+<strong>Плевен</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/pleven-bulgaria-100728203/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/5.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+
+</div>
+<br class="clear" />
+<strong id="condition">Ясно</strong>
+<br />
+<span id="flike">Усеща се като -20°</span>
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n000.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/sandanski-bulgaria-100727447">
+
+<strong>Сандански</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/sandanski-bulgaria-100727447/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/6.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Ясно</strong>
+<br />
+<span id="flike">Усеща се като -11°</span>
+
+</div>
+</div>
+<div class="weathercn">
+<div id="weatherpic">
+<img alt="" width="140" height="110" src="http://img.abv.bg/i/p.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/wh/sinoptikgif/n000.gif</div>
+</div>
+<div id="weathercontent">
+<a target="_blank" class="l" href="http://sinoptik.bg/borovets-bulgaria-100733055">
+<strong>Боровец</strong>
+</a>
+<a target="_blank" class="r" href="http://sinoptik.bg/borovets-bulgaria-100733055/10-days">10-дневна прогноза</a>
+<br class="clear" />
+<div id="temperature">
+
+<img src="http://img.abv.bg/dHome/dragcifri/minus.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/1.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/3.gif" />
+<img src="http://img.abv.bg/dHome/dragcifri/GRADUS.gif" />
+</div>
+<br class="clear" />
+<strong id="condition">Ясно</strong>
+<br />
+<span id="flike">Усеща се като -17°</span>
+</div>
+</div>
+</div>
+<br class="clear" />
+</div><div class="block b6 widget movable">
+<div class="blocktop"> </div>
+
+<h2 class="bheader">
+<div class="l">ХОРОСКОП  <a href="http://horoskopi.gbg.bg" target="_blank">Нoroskopi.gbg.bg</a>
+</div>
+<div class="r">
+<div class="settings"> </div>
+</div>
+</h2>
+<div class="settingspanel astro">
+<ul>
+<li>Овен</li>
+<li>Рак</li>
+<li>Везни</li>
+
+<li>Козирог</li>
+<li>Телец</li>
+<li>Лъв</li>
+<li>Скорпион</li>
+<li>Водолей</li>
+<li>Близнаци</li>
+<li>Дева</li>
+<li>Стрелец</li>
+<li>Риби</li>
+
+</ul>
+</div>
+<div class="content astro">
+<div id="astroimage">
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia1.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia4.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia7.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia10.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia2.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia5.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia8.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/n/i/hs/AstroDragAbv/zodia11.gif" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia11.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia3.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia6.gif</div>
+
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia9.gif</div>
+<img width="150" height="140" alt="" src="http://img.abv.bg/i/p.gif" style="display: none;" />
+<div class="newsimg">http://img.abv.bg/n/i/hs/AstroDragAbv/zodia12.gif</div>
+</div>
+<div id="astroright">
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=1&amp;horoscope=daily">
+<strong>Овен</strong>
+</a>
+    	             (21.03-20.04)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=1&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=1&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>Още с настъпването на новата седмица ще имате възможност да започнете работа по осъществяването на конкретна промяна на работното си място. Добре е да избягвате излишно да поемате неоправдани рискове, тъй като ще ви бъде трудно да контролирате положението на сто процента, особено ако сте зависими и от заобикалящите.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=4&amp;horoscope=daily">
+<strong>Рак</strong>
+</a>
+    	             (22.06-22.07)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=4&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=4&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>В началото на периода организирайте по такъв начин професионалните си инициативи, че да се справите успешно с предизвикателствата, отправени ви от близък човек. Имайте предвид, че ще се наложи да отговаряте за някои ваши действия и за решения, които сте взели в близкото минало.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=7&amp;horoscope=daily">
+<strong>Везни</strong>
+</a>
+    	             (24.09-23.10)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=7&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=7&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>С настъпването на новата седмица ще имате желание да промените по-голяма част от обстоятелствата, заобикалящи ви в професионален план. Добре е да намерите силни съдружници, с които успешно да се справите с всекидневните си задължения на работното място. Имайте предвид, че обстоятелствата ще бъдат изключително благоприятни за вас, особено ако знаете как да се възползвате от тях.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=10&amp;horoscope=daily">
+<strong>Козирог</strong>
+</a>
+    	             (22.12-20.01)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=10&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=10&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>В началото на седмицата се постарайте да организирате делата си в професионалната сфера изключително педантично. Не позволявайте на никого и на нищо да ви отдалечава от целите, които си поставихте неотдавна. Действайте с размах и без страх, че има вероятност да се провалите в начинанията си.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=2&amp;horoscope=daily">
+<strong>Телец</strong>
+</a>
+    	             (21.04-21.05)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=2&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=2&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>В началото на седмицата е важно да проумеете, че успехите ви в професионалната сфера ще се измерват с предприетите от вас действия, но също така и с постигнатите крайни резултати. Твърде възможно е много от вас да се чувстват самотни, което и да стане причина за възникването на сериозни дрязги в отношенията ви с интимната половинка.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=5&amp;horoscope=daily">
+<strong>Лъв</strong>
+</a>
+    	             (23.07-23.08)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=5&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=5&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>С настъпването на новата седмица трудностите ви ще се дължат на неспособността ви да се справите с някои неочаквани предизвикателства, отправени ви от съдбата. Действайте с размах и най-вече не се страхувайте какво мнение ще си изградят за вас хората от прякото ви обкръжение.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=8&amp;horoscope=daily">
+<strong>Скорпион</strong>
+</a>
+    	             (24.10-22.11)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=8&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=8&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>С началото на седмицата ще бъде изключително важно да вземете спешни мерки срещу нападки от страна на колега или конкурент. Избягвайте да предприемате инициативи, с които рискувате да попаднете в обсега на нечии чужди интереси. Пазете територията си, но и не пристъпвайте в чуждата.</p>
+</div>
+<div class="astrocn">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=11&amp;horoscope=daily">
+<strong>Водолей</strong>
+</a>
+    	             (21.01-19.02)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=11&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=11&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>С настъпването на новата делова седмица направете цялостна преоценка на вече постигнатото от вас, като не се колебаете да внесете и промени, ако обстоятелствата налагат това. Намерете време да обсъдите някои въпроси, засягащи вас и интимната ви половинка.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=3&amp;horoscope=daily">
+<strong>Близнаци</strong>
+</a>
+    	             (22.05-21.06)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=3&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=3&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>През първия делничен ден ще осъзнаете колко големи ползи сте успели да постигнете в професионално отношение заради предприетите от вас ходове. Решенията ви ще бъдат посрещани със сериозно одобрение от влиятелни особи, които ще ви отправят предложения, даващи нов тласък на кариерата ви.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=6&amp;horoscope=daily">
+<strong>Дева</strong>
+</a>
+    	             (24.08-23.09)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=6&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=6&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>В началото на периода избягвайте да правите каквито и да било промени или да предприемате конкретни ходове в деловата сфера в последния момент, без да сте обмислили и планирали добре. Имайте предвид, че трябва да се съобразите с желанията на началник или клиент, за да не изгубите вече завоюваните от вас позиции.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=9&amp;horoscope=daily">
+<strong>Стрелец</strong>
+</a>
+    	             (23.11-21.12)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=9&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=9&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>С началото на седмицата много от вас ще бъдат застигнати от щастливи случайности, които ще определят до голяма степен избора ви както по отношение на професионалните интереси, така и желанието ви да инвестирате. Постарайте се да не давате пари назаем, тъй като рискувате никога да не ви ги върнат.</p>
+</div>
+<div class="astrocn" style="display: none;">
+<div class="l">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=12&amp;horoscope=daily">
+<strong>Риби</strong>
+</a>
+    	             (20.02-20.03)
+    	           </div>
+
+<div class="r">
+<a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=12&amp;horoscope=weekly">Седмичен</a> |
+    	             <a target="_blank" href="http://horoskopi.gbg.bg/index.php?c=daily&amp;sign_id=12&amp;horoscope=monthly">Месечен</a>
+</div>
+<br class="clear" />
+<p>Още в началото на седмицата с постоянство и отлична организация ще успеете да се справите с предизвикателствата, отправени ви от съдбата. Хубаво е на този етап да не избързвате да подписвате определено делово споразумение, защото не е изключено да ви бъде предложено много по-добро от него.</p>
+</div>
+</div>
+</div>
+<br class="clear" />
+</div>
+
+  	   </div>
+
+  	   <br class="clear" />
+  	  </div>
+  	  
+  	  
+  	  <!-- FOOTER -->  	  
+      <div id="footer">
+        <br class="clear" /><br /><br /><br /><br />
+        <ul>
+          <li>Да организирам 
+            <p><a href="http://abv.bg" target="_blank">АБВ Поща</a><span class="separator">|</span><a href="http://dox.bg" target="_blank">DOX</a><br /><a href="http://apps.abv.bg" target="_blank">АБВ на твой домейн</a></p>
+
+          </li>
+          <li >Да намирам
+            <p><a href="http://gbg.bg" target="_blank">Гювеч</a><span class="separator">|</span><a href="http://izgodnioferti.bg/" target="_blank">Изгодни оферти</a></p>
+          </li>
+          <li>Да се информирам
+            <p><a href="http://vesti.bg" target="_blank">Новини</a><span class="separator">|</span><a href="http://sportni.bg" target="_blank">Спорт</a><br /><a href="http://pariteni.bg" target="_blank">Пари</a><span class="separator">|</span><a href="http://sinoptik.bg" target="_blank">Времето</a></p>
+
+          </li>
+          <li >Да се забавлявам
+            <p><a href="http://vbox7.com" target="_blank">Видео</a><span class="separator">|</span><a href="http://vgames.bg" target="_blank">Игри</a><br /><a href="http://vmusic.bg" target="_blank">Музика</a><span class="separator">|</span><a href="http://vcards.bg" target="_blank">Картички</a></p>
+          </li>
+          <li  class="last">
+           <p class="pn"><a href="http://netinfocompany.bg/choose_adproduct.php?s=1&site_select[69]=69"  target="_blank">За реклама</a><span class="separator">|</span><a href="http://www.adwise.bg/promo/" target="_blank">Adwise реклама</a><span class="separator">|</span><a href="http://netinfocompany.bg/about.php" target="_blank">За нас</a><br /><a href="http://netinfocompany.bg/portfolio.php" target="_blank">Портфолио</a><span class="separator">|</span><a href="https://passport.abv.bg/j/form_help.jsp?from=abv.bg" target="_blank">Пишете ни</a><span class="separator">|</span><a href="https://passport.abv.bg/terms.html" target="_blank">Общи условия</a><span class="separator">|</span><a href="http://blog.abv.bg/" target="_blank">Блог</a>&nbsp;&nbsp;</p>&copy;&nbsp;1999-2012 "Нет Инфо.БГ" ЕАД&nbsp;<a href="http://netinfocompany.bg/privacy.php "  target="_blank">Всички права запазени.</a>
+
+          </li>
+        </ul>
+      </div>
+      <br clear="all"/><br />
+      <!-- \ FOOTER -->
+	 </div>
+    <!--\CONTENT-->
+  </div>
+  <!--\WRAPPER--> 
+  
+
+<!-- Counters -->
+
+<!-- START Nielsen//NetRatings SiteCensus V5.3 -->
+<!-- COPYRIGHT 2007 Nielsen//NetRatings -->
+<script type="text/javascript">
+	var _rsCI="bg-netinfobg";
+	var _rsCG="0";
+	var _rsDN="//secure-it.imrworldwide.com/";
+	var _rsIP=1;
+	var _rsCC=1;
+	var _rsSE=1;
+	var _rsSM=0.03; 
+</script>
+<script type="text/javascript" src="//secure-it.imrworldwide.com/v53f.js"></script>
+<noscript>
+	<div><img src="//secure-it.imrworldwide.com/cgi-bin/m?ci=bg-netinfobg&amp;cg=0&cc=1" style="display:none" alt=""/></div>
+</noscript>
+<!-- END Nielsen//NetRatings SiteCensus V5.3 -->
+
+<!-- (C)2000-2008 Gemius SA - gemiusAudience / abv.bg / Home Page -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = new String('pyM6ETuay1axb8mosdTjz6R..KfGoHBcgod0mxirr8X.07');
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://img.abv.bg/gemius/xgemius.js"></script>
+
+<!-- (C)2000-2008 Gemius SA - gemiusAudience / abv.bg / Home Page -->
+
+<!-- \Counters -->
+  
+  </body>
+</html>

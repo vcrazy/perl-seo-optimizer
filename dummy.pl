@@ -1,40 +1,47 @@
-#! /usr/bin/perl
-# use strict;
+use strict;
 
-use JSON; # тука май ползвам JSON ДЖЕЙСОООООУУУУЪН
+use JSON;
+use Switch;
 
 local $/;
 open(my $fh, '<', 'optimizer_settings.json');
 my $json_text   = <$fh>;
+
+open(CON, '<', 'content.txt');
+my $cont   = <CON>;
 
 my $perl_scalar = decode_json($json_text);
 
 #my $js_max_size = $perl_scalar->{'settings'}{'content'}{'js'}{'max_size'}; # max_size
 #print $js_max_size;
 
-#foreach $key (keys %{$perl_scalar->{'settings'}{'content'}{'js'}})
+#foreach (keys %{$perl_scalar->{'settings'}{'content'}{'js'}})
 #{
-#	print $perl_scalar->{'settings'}{'content'}{'js'}{$key};
+#	print $perl_scalar->{'settings'}{'content'}{'js'}{$_};
 #}
 
-
-sub rules($ $)
+sub rules
 {
-	my ($param, $hash) = @_;
-	foreach (keys %hash) {print $_;}
+  my ($content,$rules) =@_;
+  #print $rules->{'settings'}{'content'};
+  foreach (keys %{$rules->{'settings'}{'content'}} )
+  {
+    switch ( $_ )
+      {
+         case "urls"
+           {
+           
 
-	if(UNIVERSAL::isa($hash, "HASH"))
-	{
-		foreach $key (keys %hash)
-		{
-			&rules($key, $hash{$key}); # how to call the function
-		}
-	}
-	else # is scalar..
-	{
-		print $param;
-	}
+              foreach( $content=~m/href="(.*?)"/ixg )
+                {
+                 my $link=$_;
+                 print $_;
+                 print "ne" if ( length($link) > $rules->{'settings'}{'content'}{'urls'}{'max_length'});
+                 print "ne2", length($link=~s/[\w\d_\/-:\.]*//g), "\n";
+                }
+           }
+      }
+  }
 }
 
-&rules('1', $perl_scalar->{'settings'});
-
+&rules($cont,$perl_scalar);
