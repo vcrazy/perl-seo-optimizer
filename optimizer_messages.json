@@ -2,13 +2,13 @@
     "settings": {
 		"content": {
 			"flash": {
-				"use": false
+				"use": "Използването на flash е "
 			},
-            "content": {
-                "max_length": 100000
-            },
+			"content": {
+				"max_length": "Максималната дължина на съдържанието на страницата трябва да е "
+			},
 			"title": {
-				"max_length": 127
+				"max_length": "Максималната дължина на title-а на страницата трябва да е "
 			},
 			"meta_tags": {
 				"keywords": {
@@ -24,9 +24,9 @@
 				}
 			},
 			"urls": {
-				"max_length": 100,
-				"max_special_chars": 25,
-				"max_slashes": 5,
+				"max_length": "Url's maximum length should be $$ symbols. You have @@ urls with more than $$ symbols in them.\n",
+				"max_special_chars": "Url's maximum number of special characters is $$. You have @@ links with more than $$ special characters.\n",
+				"max_slashes": "Url's maximum number of slashes is $$. You have @@ links with more than $$ slashes.\n",
 				"max_outgoing": "15%"
 			},
 			"tags": {
