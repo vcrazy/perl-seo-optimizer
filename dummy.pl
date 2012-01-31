@@ -1,16 +1,24 @@
-use strict;
+#use strict;
 
 use JSON;
 use Switch;
 
 local $/;
-open(my $fh, '<', 'optimizer_settings.json');
-my $json_text   = <$fh>;
+
+open(FH, '<', 'optimizer_settings.json');
+my $perl_scalar   = <FH>;
 
 open(CON, '<', 'content.txt');
 my $cont   = <CON>;
 
-my $perl_scalar = decode_json($json_text);
+open(SET, '<', 'optimizer_messages.json');
+my $error_messages = <SET>;
+
+my $domain = 'www.abv.bg'; # current website
+
+# json decode
+$perl_scalar = decode_json($perl_scalar);
+$error_messages = decode_json($error_messages);
 
 #my $js_max_size = $perl_scalar->{'settings'}{'content'}{'js'}{'max_size'}; # max_size
 #print $js_max_size;
@@ -20,28 +28,113 @@ my $perl_scalar = decode_json($json_text);
 #	print $perl_scalar->{'settings'}{'content'}{'js'}{$_};
 #}
 
+sub printer
+{
+	my ($message, $rule, $number_of_problems) = @_;
+
+	$message=~s/\$\$/$rule/g;
+	$message=~s/\@\@/$number_of_problems/g;
+
+	print $message;
+}
+
 sub rules
 {
-  my ($content,$rules) =@_;
-  #print $rules->{'settings'}{'content'};
-  foreach (keys %{$rules->{'settings'}{'content'}} )
-  {
-    switch ( $_ )
-      {
-         case "urls"
-           {
-           
+  my ($content, $rules) = @_;
 
-              foreach( $content=~m/href="(.*?)"/ixg )
-                {
-                 my $link=$_;
-                 print $_;
-                 print "ne" if ( length($link) > $rules->{'settings'}{'content'}{'urls'}{'max_length'});
-                 print "ne2", length($link=~s/[\w\d_\/-:\.]*//g), "\n";
-                }
-           }
-      }
-  }
+	foreach (keys %{$rules->{'settings'}{'content'}} )
+	{
+		switch ( $_ )
+		{
+			case "urls"
+			{
+				my %urls;
+				foreach( $content=~m/href="(.*?)"/ixg )
+				{
+					$urls{$_} = 1;
+					#my $link = $_;
+					#print $_;
+					#print "ne" if ( length($link) > $rules->{'settings'}{'content'}{'urls'}{'max_length'});
+					#print "ne2", length($link=~s/[\w\d_\/-:\.]*//g), "\n";
+				}
+
+				foreach(keys %{$rules->{'settings'}{'content'}{'urls'}})
+				{
+					switch($_)
+					{
+						my $max = $rules->{'settings'}{'content'}{'urls'}{$_};
+						my $problems = 0;
+
+						case "max_length"
+						{
+							foreach(keys %urls)
+							{
+								if(length($_) > $max)
+								{
+									$problems++;
+								}
+							}
+
+							if($problems)
+							{
+								&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_length'}, $max, $problems);
+							}
+						}
+						case "max_special_chars"
+						{
+							foreach(keys %urls)
+							{
+								my $link = $_;
+								if(length($link) - length($link=~s/[\w\d_\/-:]*//g) > $max)
+								{
+									$problems++;
+								}
+							}
+
+							if($problems)
+							{
+								&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_special_chars'}, $max, $problems);
+							}
+						}
+						case "max_slashes"
+						{
+							foreach(keys %urls)
+							{
+								my $link = $_;
+								if(length($link) - length($link=~s/\\\///g) > $max)
+								{
+									$problems++;
+								}
+							}
+
+							if($problems)
+							{
+								&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_slashes'}, $max, $problems);
+							}
+						}
+						case "max_outgoing"
+						{
+							foreach(keys %urls)
+							{
+								#my $link = $_;
+#print $link=~m/http(s?):\/\/$domain\/*/i;
+								#print $_;
+								#if(!$link=~m/http(s?):\/\/$domain\/*/i)
+								#{
+								#	print 1;
+								#	$problems++;
+								#}
+								#else
+								#{
+								#	print 2;
+								#}
+							}
+						}
+					}
+				}
+			}	
+		}
+	}
 }
 
 &rules($cont,$perl_scalar);
