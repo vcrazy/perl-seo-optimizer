@@ -4,9 +4,9 @@
 			"flash": {
 				"use": false
 			},
-			"content": {
-				"max_length": 100000
-			},
+            "content": {
+                "max_length": 100000
+            },
 			"title": {
 				"max_length": 127
 			},
