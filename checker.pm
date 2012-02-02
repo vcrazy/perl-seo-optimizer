@@ -1,5 +1,8 @@
-package checker;
-#use strict;
+use lib 'E:/Programs/xampp/htdocs/perl-seo-optimizer';
+use dbi_seo;
+
+package checker::SEO;
+use strict;
 
 use JSON;
 use Switch;
@@ -22,13 +25,19 @@ $VERSION     = 1.00;
 }
 our @EXPORT_OK;
 
+use base 'dbi_seo::DBI';
+
 local $/;
 
 open(FH, '<', 'optimizer_settings.json');
 my $perl_scalar   = <FH>;
 
-open(CON, '<', 'content.txt');
-my $cont   = <CON>;
+
+checker::SEO->table('sites');
+checker::SEO->columns(All => qw/id link content depth vis_cr/);
+
+my $row = checker::SEO->retrieve( '13282098997907355' );
+my $cont= $row->content;
 
 open(SET, '<', 'optimizer_messages.json');
 my $error_messages = <SET>;
@@ -156,4 +165,6 @@ sub rules
 	}
 }
 
-&rules($cont,$perl_scalar);
+END {} #global destructor
+
+1; #do not forget to return a true value

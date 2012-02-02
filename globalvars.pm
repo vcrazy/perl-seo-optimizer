@@ -11,7 +11,7 @@ our ($VERSION, @ISA, @EXPORT, @EXPORT_OK, %EXPORT_TAGS);
 $VERSION     = 1.00;
 
 @ISA         = qw(Exporter);
-@EXPORT      = qw(  );
+@EXPORT      = qw( );
 %EXPORT_TAGS = ( );     # eg: TAG => [ qw!name1 name2! ],
 
 # your exported package globals go here,
@@ -27,4 +27,7 @@ our $port    = 5432;
 our $dbuser  = "postgres";
 our $dbpass  = "";
 
- our $bul_alphabet='абвгдежзийклмнопрстуфхцчшщъьюя';
+our $bul_alphabet='абвгдежзийклмнопрстуфхцчшщъьюя';
+
+END {}
+1;

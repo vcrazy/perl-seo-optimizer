@@ -1,15 +1,8 @@
-package crawler::DBI;
-use lib 'E:/AppServ/www/perl-seo-optimizer/';
-use base 'Class::DBI';
-use globalvars;
-use strict;
+use lib 'E:/Programs/xampp/htdocs/perl-seo-optimizer';
+use dbi_seo;
 
-crawler::DBI->connection("dbi:Pg:dbname=$globalvars::dbname;host=$globalvars::host;port=$globalvars::port", $globalvars::dbuser, $globalvars::dbpass);
+package crawler;
 
-
-package crawler::SEO;
-
-use lib 'E:/AppServ/www/perl-seo-optimizer/';
 use strict;
 use globalvars;
 
@@ -22,7 +15,7 @@ our ($VERSION, @ISA, @EXPORT, @EXPORT_OK, %EXPORT_TAGS);
 $VERSION     = 1.00;
 
 @ISA         = qw(Exporter);
-@EXPORT      = qw( &IsLink &GetDomain &IsNotFile &Crawler &GenerateID );
+@EXPORT      = qw( &IsLink &GetDomain &IsNotFile &Crawlersub &GenerateID);
 %EXPORT_TAGS = ( );     # eg: TAG => [ qw!name1 name2! ],
 
 # your exported package globals go here,
@@ -140,21 +133,21 @@ sub IsNotFile
 
 sub Save
 {
-  use base 'crawler::DBI';
+  use base 'dbi_seo::DBI';
   use WWW::Mechanize;
   
   my($link, $depth) =@_;
   my $mech= WWW::Mechanize->new( agent => 'perl seo optimizer v 1.1');    #Creates object, hereafter referred to as the "agent".
-  eval {$mech->get($link)};
+  $mech->get($link);
   
   my $content= $mech->content();                                          #Take the content
 
-  crawler::SEO->table('sites');
-  crawler::SEO->columns(All => qw/id link content depth vis_cr/);
+  crawler->table('sites');
+  crawler->columns(All => qw/id link content depth vis_cr/);
 
   my $id= &GenerateID();
 
-  my $result=crawler::SEO->insert
+  my $result=crawler->insert
     ({
       id       => $id,
       link     => $link,
@@ -162,7 +155,7 @@ sub Save
       depth    => $depth,
       vis_cr   => 1
     });
-    crawler::SEO->dbi_commit();
+    crawler->dbi_commit();
 }
 sub GetLinksFromPage
 {
@@ -187,7 +180,7 @@ sub GetLinksFromPage
     }
 }
 
-sub Crawler
+sub Crawlersub
 {
   my ($uri, $depth, $unique_urls)=@_;
   if ($#{$unique_urls} == -1)                                             #for first time save the first url
@@ -212,21 +205,5 @@ sub Crawler
     }
 }
 
-my @list_url;
-
-#print "--------------------------------------------\n";
-#&Crawler("http://www.mobile.bg/",1, \@list_url);
-
-#&Crawler("http://probook.bg/",3, \@list_url);
-
-&Crawler("http://itschool.ganev.bg/",1, \@list_url);
-my $i=3;
-foreach (@list_url)
-  {
-    if ( ($i%3)==0 )
-      {
-        print $_."\n";
-      }
-    $i++;
-  }
-print "\n", ($#list_url+1)/3;
+END {}                                                                   #global destructor
+1;                                                                       #do not forget to return a true value
