@@ -8,19 +8,14 @@
                 "max_length": 200
             },
 			"title": {
-				"max_length": 10
+				"max_length": 10,
+				"keywords": {
+					"bad": ["banner", "affiliate", "tralala", "devs"]
+				}
 			},
 			"meta_tags": {
-				"keywords": {
-					"bad": ["banner", "affiliate", "tralala"],
-					"max_number": 50,
-					"max_length": 255,
-					"max_repeated_word": 3
-				},
 				"description": {
-					"max_length": 255,
-					"max_sentences": 10,
-					"max_repeated_word": 3
+					"max_length": 10
 				}
 			},
 			"urls": {
@@ -30,14 +25,13 @@
 			},
 			"tags": {
 				"ul": {
-					"required": true,
-					"min_elements": 2
+					"use": true
 				},
 				"a": {
 					"max_elements": 100
 				},
 				"h1": {
-					"required": true,
+					"use": true,
 					"max_elements": 10
 				},
 				"h2": {
@@ -49,7 +43,7 @@
 				"img": {
 					"max_elements": 100,
 					"alt": {
-						"required": true
+						"use": true
 					}
 				}
 			}

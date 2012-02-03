@@ -42,14 +42,6 @@ my @errors; # all errors
 $rules = decode_json($rules);
 $error_messages = decode_json($error_messages);
 
-#my $js_max_size = $perl_scalar->{'settings'}{'content'}{'js'}{'max_size'}; # max_size
-#print $js_max_size;
-
-#foreach (keys %{$perl_scalar->{'settings'}{'content'}{'js'}})
-#{
-#	print $perl_scalar->{'settings'}{'content'}{'js'}{$_};
-#}
-
 sub printer
 {
 	my ($message, $rule, $number_of_problems) = @_;
@@ -64,7 +56,7 @@ sub max_length
 {
 	my $problems = 0;
 
-	my ($max, $key, %urls) = @_;
+	my ($max, $error, $key, %urls) = @_;
 
 	foreach(keys %urls)
 	{
@@ -76,7 +68,7 @@ sub max_length
 
 	if($problems)
 	{
-		&printer($error_messages->{'settings'}{'content'}{$key}{'max_length'}, $max, $problems);
+		&printer($error, $max, $problems);
 	}
 }
 
@@ -110,6 +102,29 @@ sub case_use
 	if((!$must && $content=~s/\<$use//g) || ($must && !($save_content=~s/\<$use//g)))
 	{
 		&printer($error_messages->{'settings'}{'content'}{$key}{'use'}, $must ? '' : 'not');
+	}
+}
+
+sub times_found
+{
+	my ($word, $content) = @_;
+
+	return length($content=~m/$word/ig);
+}
+
+sub bad_words
+{
+	my ($content, $key, @words) = @_;
+
+	my $bad = 0;
+	foreach (@words)
+	{
+		$bad += &times_found($_, $content);
+	}
+
+	if($bad)
+	{
+		&printer($error_messages->{'settings'}{'content'}{$key}{'keywords'}{'bad'}, $bad, join(', ', @{$rules->{'settings'}{'content'}{$key}{'keywords'}{'bad'}}));
 	}
 }
 
@@ -153,11 +168,16 @@ sub rules
 				{
 					switch($_)
 					{
+						my $title = $content;
+						$title=~m/(<title>(.*?)<\/title>)/ig;
+
 						case "max_length"
 						{
-							my $title = $content;
-							$title=~m/(<title>(.*?)<\/title>)/ig;
-							&max_length($rules->{'settings'}{'content'}{'title'}{$_}, 'title', $2);
+							&max_length($rules->{'settings'}{'content'}{'title'}{$_}, $error_messages->{'settings'}{'content'}{'title'}{$_}, 'title', $2);
+						}
+						case "bad"
+						{
+							&bad_words($2, 'meta_tags', @{$rules->{'settings'}{'content'}{'title'}{'bad'}});
 						}
 					}
 				}
@@ -178,15 +198,41 @@ sub rules
 
 						case "max_length"
 						{
-							&max_length($max, 'urls', %urls);
+							&max_length($max, $error_messages->{'settings'}{'content'}{'urls'}{$_}, 'urls', %urls);
 						}
 						case "max_special_chars"
 						{
-							&max_chars($max, '[\w\d_\/-:]*', $_, %urls);
+							&max_chars($max, $error_messages->{'settings'}{'content'}{'urls'}{$_}, '[\w\d_\/-:]*', $_, %urls);
 						}
 						case "max_slashes"
 						{
-							&max_chars($max, '\\\/', $_, %urls);
+							&max_chars($max, $error_messages->{'settings'}{'content'}{'urls'}{$_}, '\\\/', $_, %urls);
+						}
+					}
+				}
+			}
+			case 'meta_tags'
+			{
+				foreach(keys %{$rules->{'settings'}{'content'}{'meta_tags'}})
+				{
+					switch($_)
+					{
+						case "description"
+						{
+							foreach(keys %{$rules->{'settings'}{'content'}{'meta_tags'}{'description'}})
+							{
+								switch($_)
+								{
+									my $description = $content;
+									$description=~m/<meta name="description" content="(.*?)"(.*?)>/i;
+									$description = $1;
+
+									case "max_length"
+									{
+										&max_length($rules->{'settings'}{'content'}{'meta_tags'}{'description'}{'max_length'}, $error_messages->{'settings'}{'content'}{'meta_tags'}{'description'}{'max_length'}, 'description', $description);
+									}
+								}
+							}
 						}
 					}
 				}

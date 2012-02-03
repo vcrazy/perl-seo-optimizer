@@ -8,19 +8,14 @@
 				"max_length": "Content's maximum length should be no more than $$ symbols. You have @@ pages with more than $$ symbols in content.\n"
 			},
 			"title": {
-				"max_length": "Title's maximum length should be no more than $$ symbols. @@ of your pages have title whose length is more than $$ symbols.\n"
+				"max_length": "Title's maximum length should be no more than $$ symbols. @@ of your pages have title whose length is more than $$ symbols.\n",
+				"keywords": {
+					"bad": "$$ bad words found. Avoid using @@.\n"
+				}
 			},
 			"meta_tags": {
-				"keywords": {
-					"bad": ["banner", "affiliate", "tralala"],
-					"max_number": 50,
-					"max_length": 255,
-					"max_repeated_word": 3
-				},
 				"description": {
-					"max_length": 255,
-					"max_sentences": 10,
-					"max_repeated_word": 3
+					"max_length": "Description's maximum length is $$ symbols. You have @@ descriptions longer than $$ symbols.\n"
 				}
 			},
 			"urls": {
@@ -30,8 +25,7 @@
 			},
 			"tags": {
 				"ul": {
-					"required": true,
-					"min_elements": 2
+					"required": true
 				},
 				"a": {
 					"max_elements": 100
