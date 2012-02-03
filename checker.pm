@@ -36,6 +36,7 @@ open(SET, '<', 'optimizer_messages.json');
 my $error_messages = <SET>;
 
 my $domain = 'ganev.bg'; # current website
+my @errors; # all errors
 
 # json decode
 $rules = decode_json($rules);
@@ -59,6 +60,47 @@ sub printer
 	print $message;
 }
 
+sub max_length
+{
+	my $problems = 0;
+
+	my ($max, %urls) = @_;
+
+	foreach(keys %urls)
+	{
+		if(length($_) > $max)
+		{
+			$problems++;
+		}
+	}
+
+	if($problems)
+	{
+		&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_length'}, $max, $problems);
+	}
+}
+
+sub max_chars
+{
+	my $problems = 0;
+
+	my ($max, $chars, $chars_text, %urls) = @_;
+
+	foreach(keys %urls)
+	{
+		my $link = $_;
+		if(length($link) - length($link=~s/$chars//g) > $max)
+		{
+			$problems++;
+		}
+	}
+
+	if($problems)
+	{
+		&printer($error_messages->{'settings'}{'content'}{'urls'}{$chars_text}, $max, $problems);
+	}
+}
+
 sub rules
 {
   my ($content) = @_;
@@ -73,10 +115,6 @@ sub rules
 				foreach( $content=~m/href="(.*?)"/ixg )
 				{
 					$urls{$_} = 1;
-					#my $link = $_;
-					#print $_;
-					#print "ne" if ( length($link) > $rules->{'settings'}{'content'}{'urls'}{'max_length'});
-					#print "ne2", length($link=~s/[\w\d_\/-:\.]*//g), "\n";
 				}
 
 				foreach(keys %{$rules->{'settings'}{'content'}{'urls'}})
@@ -88,68 +126,15 @@ sub rules
 
 						case "max_length"
 						{
-							foreach(keys %urls)
-							{
-								if(length($_) > $max)
-								{
-									$problems++;
-								}
-							}
-
-							if($problems)
-							{
-								&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_length'}, $max, $problems);
-							}
+							&max_length($max, %urls);
 						}
 						case "max_special_chars"
 						{
-							foreach(keys %urls)
-							{
-								my $link = $_;
-								if(length($link) - length($link=~s/[\w\d_\/-:]*//g) > $max)
-								{
-									$problems++;
-								}
-							}
-
-							if($problems)
-							{
-								&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_special_chars'}, $max, $problems);
-							}
+							&max_chars($max, '[\w\d_\/-:]*', $_, %urls);
 						}
 						case "max_slashes"
 						{
-							foreach(keys %urls)
-							{
-								my $link = $_;
-								if(length($link) - length($link=~s/\\\///g) > $max)
-								{
-									$problems++;
-								}
-							}
-
-							if($problems)
-							{
-								&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_slashes'}, $max, $problems);
-							}
-						}
-						case "max_outgoing"
-						{
-							foreach(keys %urls)
-							{
-								#my $link = $_;
-#print $link=~m/http(s?):\/\/$domain\/*/i;
-								#print $_;
-								#if(!$link=~m/http(s?):\/\/$domain\/*/i)
-								#{
-								#	print 1;
-								#	$problems++;
-								#}
-								#else
-								#{
-								#	print 2;
-								#}
-							}
+							&max_chars($max, '\\\/', $_, %urls);
 						}
 					}
 				}
@@ -178,7 +163,7 @@ sub CheckSite
 }
 
 #temp
-#&CheckSite();
+&CheckSite();
 
 END {} #global destructor
 

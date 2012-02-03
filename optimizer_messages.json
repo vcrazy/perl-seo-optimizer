@@ -26,8 +26,7 @@
 			"urls": {
 				"max_length": "Url's maximum length should be $$ symbols. You have @@ urls with more than $$ symbols in them.\n",
 				"max_special_chars": "Url's maximum number of special characters is $$. You have @@ links with more than $$ special characters.\n",
-				"max_slashes": "Url's maximum number of slashes is $$. You have @@ links with more than $$ slashes.\n",
-				"max_outgoing": "15%"
+				"max_slashes": "Url's maximum number of slashes is $$. You have @@ links with more than $$ slashes.\n"
 			},
 			"tags": {
 				"ul": {
