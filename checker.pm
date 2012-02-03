@@ -158,10 +158,10 @@ sub rules
 	}
 }
 
+use base 'dbi_seo::DBI';
+
 sub CheckSite
 {
-	use base 'dbi_seo::DBI';
-
 	checker->table('sites');
 	checker->columns(All => qw/id link content depth vis_cr/);
 
@@ -173,8 +173,8 @@ sub CheckSite
 	}
 
 	# after finishing delete all
-	checker->table('sites');
-	checker->delete_all;
+	checker::SEO->delete_all;
+	checker::SEO->dbi_commit();
 }
 
 #temp
