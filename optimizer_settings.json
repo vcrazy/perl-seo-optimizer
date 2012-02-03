@@ -24,7 +24,7 @@
 				}
 			},
 			"urls": {
-				"max_length": 100,
+				"max_length": 10,
 				"max_special_chars": 25,
 				"max_slashes": 5,
 				"max_outgoing": "15%"

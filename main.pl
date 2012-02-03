@@ -1,9 +1,9 @@
 use strict;
 
-use lib 'E:/AppServ/www/perl-seo-optimizer';
+use lib 'E:/Programs/xampp/htdocs/perl-seo-optimizer';
 use globalvars;
 use crawler;
-#use checker;
+use checker;
 
 my $link;
 
@@ -29,6 +29,7 @@ if ( defined($connection) )
   {
     my @list_urls;
     &Crawlersub($link,1,\@list_urls);
+	&CheckSite();
   }
 else
   {

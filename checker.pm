@@ -1,8 +1,10 @@
 use lib 'E:/Programs/xampp/htdocs/perl-seo-optimizer';
 use dbi_seo;
 
-package checker::SEO;
+package checker;
+
 use strict;
+use globalvars;
 
 use JSON;
 use Switch;
@@ -16,7 +18,7 @@ our ($VERSION, @ISA, @EXPORT, @EXPORT_OK, %EXPORT_TAGS);
 $VERSION     = 1.00;
 
 @ISA         = qw(Exporter);
-@EXPORT      = qw( &rules );
+@EXPORT      = qw( &CheckSite );
 %EXPORT_TAGS = ( );     # eg: TAG => [ qw!name1 name2! ],
 
 # your exported package globals go here,
@@ -25,19 +27,10 @@ $VERSION     = 1.00;
 }
 our @EXPORT_OK;
 
-use base 'dbi_seo::DBI';
-
 local $/;
 
 open(FH, '<', 'optimizer_settings.json');
-my $perl_scalar   = <FH>;
-
-
-checker::SEO->table('sites');
-checker::SEO->columns(All => qw/id link content depth vis_cr/);
-
-my $row = checker::SEO->retrieve( '13282098997907355' );
-my $cont= $row->content;
+my $rules   = <FH>;
 
 open(SET, '<', 'optimizer_messages.json');
 my $error_messages = <SET>;
@@ -45,7 +38,7 @@ my $error_messages = <SET>;
 my $domain = 'www.abv.bg'; # current website
 
 # json decode
-$perl_scalar = decode_json($perl_scalar);
+$rules = decode_json($rules);
 $error_messages = decode_json($error_messages);
 
 #my $js_max_size = $perl_scalar->{'settings'}{'content'}{'js'}{'max_size'}; # max_size
@@ -68,7 +61,7 @@ sub printer
 
 sub rules
 {
-  my ($content, $rules) = @_;
+  my ($content) = @_;
 
 	foreach (keys %{$rules->{'settings'}{'content'}} )
 	{
@@ -162,6 +155,21 @@ sub rules
 				}
 			}	
 		}
+	}
+}
+
+sub CheckSite
+{
+	use base 'dbi_seo::DBI';
+
+	checker->table('sites');
+	checker->columns(All => qw/id link content depth vis_cr/);
+
+	my @cont = checker->retrieve_all();
+
+	foreach (@cont)
+	{
+		&rules($_->content);
 	}
 }
 
