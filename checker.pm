@@ -64,7 +64,7 @@ sub max_length
 {
 	my $problems = 0;
 
-	my ($max, %urls) = @_;
+	my ($max, $key, %urls) = @_;
 
 	foreach(keys %urls)
 	{
@@ -76,7 +76,7 @@ sub max_length
 
 	if($problems)
 	{
-		&printer($error_messages->{'settings'}{'content'}{'urls'}{'max_length'}, $max, $problems);
+		&printer($error_messages->{'settings'}{'content'}{$key}{'max_length'}, $max, $problems);
 	}
 }
 
@@ -101,6 +101,18 @@ sub max_chars
 	}
 }
 
+sub case_use
+{
+	my ($use, $key, $must, $content) = @_;
+
+	my $save_content = $content;
+
+	if((!$must && $content=~s/\<$use//g) || ($must && !($save_content=~s/\<$use//g)))
+	{
+		&printer($error_messages->{'settings'}{'content'}{$key}{'use'}, $must ? '' : 'not');
+	}
+}
+
 sub rules
 {
   my ($content) = @_;
@@ -109,6 +121,19 @@ sub rules
 	{
 		switch ( $_ )
 		{
+			case 'flash'
+			{
+				foreach(keys %{$rules->{'settings'}{'content'}{'flash'}})
+				{
+					switch($_)
+					{
+						case "use"
+						{
+							&case_use('object', 'flash', $rules->{'settings'}{'content'}{'flash'}{$_}, $content);
+						}
+					}
+				}
+			}
 			case "urls"
 			{
 				my %urls;
@@ -122,11 +147,10 @@ sub rules
 					switch($_)
 					{
 						my $max = $rules->{'settings'}{'content'}{'urls'}{$_};
-						my $problems = 0;
 
 						case "max_length"
 						{
-							&max_length($max, %urls);
+							&max_length($max, 'urls', %urls);
 						}
 						case "max_special_chars"
 						{
@@ -138,7 +162,7 @@ sub rules
 						}
 					}
 				}
-			}	
+			}
 		}
 	}
 }

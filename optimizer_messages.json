@@ -2,7 +2,7 @@
     "settings": {
 		"content": {
 			"flash": {
-				"use": "Използването на flash е "
+				"use": "Using flash is $$ recommended.\n"
 			},
 			"content": {
 				"max_length": "Максималната дължина на съдържанието на страницата трябва да е "

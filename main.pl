@@ -29,7 +29,7 @@ if ( defined($connection) )
   {
     my @list_urls;
     &Crawlersub($link,1,\@list_urls);
-	&CheckSite();
+	#&CheckSite();
   }
 else
   {
