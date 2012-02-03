@@ -134,6 +134,34 @@ sub rules
 					}
 				}
 			}
+			case 'content'
+			{
+				foreach(keys %{$rules->{'settings'}{'content'}{'content'}})
+				{
+					switch($_)
+					{
+						case "max_length"
+						{
+							&max_length($rules->{'settings'}{'content'}{'content'}{$_}, 'content', $content);
+						}
+					}
+				}
+			}
+			case 'title'
+			{
+				foreach(keys %{$rules->{'settings'}{'content'}{'title'}})
+				{
+					switch($_)
+					{
+						case "max_length"
+						{
+							my $title = $content;
+							$title=~m/(<title>(.*?)<\/title>)/ig;
+							&max_length($rules->{'settings'}{'content'}{'title'}{$_}, 'title', $2);
+						}
+					}
+				}
+			}
 			case "urls"
 			{
 				my %urls;

@@ -5,10 +5,10 @@
 				"use": "Using flash is $$ recommended.\n"
 			},
 			"content": {
-				"max_length": "Максималната дължина на съдържанието на страницата трябва да е "
+				"max_length": "Content's maximum length should be no more than $$ symbols. You have @@ pages with more than $$ symbols in content.\n"
 			},
 			"title": {
-				"max_length": "Максималната дължина на title-а на страницата трябва да е "
+				"max_length": "Title's maximum length should be no more than $$ symbols. @@ of your pages have title whose length is more than $$ symbols.\n"
 			},
 			"meta_tags": {
 				"keywords": {

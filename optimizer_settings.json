@@ -5,10 +5,10 @@
 				"use": false
 			},
             "content": {
-                "max_length": 100000
+                "max_length": 200
             },
 			"title": {
-				"max_length": 127
+				"max_length": 10
 			},
 			"meta_tags": {
 				"keywords": {
