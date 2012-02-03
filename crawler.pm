@@ -122,7 +122,7 @@ sub UniqueUrl
 sub IsNotFile
 {
   my ($link)=@_;
-  my @files_lib=('.mp3','.exe','.pdf','.doc','.ico','.css','.pic');
+  my @files_lib=('.mp3','.exe','.pdf','.doc','.ico','.css','.pic','.png');
 
   foreach (@files_lib)
     {

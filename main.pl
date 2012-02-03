@@ -1,35 +1,36 @@
 use strict;
 
-use lib 'E:/Programs/xampp/htdocs/perl-seo-optimizer';
+use lib 'E:/AppServ/www/perl-seo-optimizer';
 use globalvars;
 use crawler;
-use checker;
-use IO::SOCKET::INET;
+#use checker;
 
-my @list_urls;
-my $link=<>;
-$link=~s/\s//;
+my $link;
 
-
-sub check_site {
-  my $host           = shift; # hostname or hostname:port
-  my $timeoutseconds = shift || 1;
-  my $proto          = "tcp";
-  my $handle = IO::Socket::INET->new('PeerAddr'=>$host,'Timeout'=>$timeoutseconds, 'Proto'=>$proto);
-
-  if (defined $handle && $handle) {
-    $handle->close();
-    return 1; # port in use
+while (!&IsLink($link))
+  {
+    print "enter valid link:";
+    $link=<>;
+    $link=~s/\s//;
+    $link='http://'.$link if($link!~m/^http:\/\//);
   }
 
-  return 0; # not reachable or timeout
-}
+my $host= $link;
+$host=~ s/https?:\/\///;  
 
-if (&check_site($link,50))
+print $link, " = ", $host;
+use Net::Telnet;
+my $connection;
+eval {$connection=Net::Telnet->new(Timeout => 100, Host => $host, Port=>80)};
+
+
+
+if ( defined($connection) )
   {
+    my @list_urls;
     &Crawlersub($link,1,\@list_urls);
   }
 else
   {
-	print "Not reachable or timeout";
+    print "Not reachable or timeout";
   }
