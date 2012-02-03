@@ -18,7 +18,7 @@ while (!&IsLink($link))
 my $host= $link;
 $host=~ s/https?:\/\///;  
 
-print $link, " = ", $host;
+print $link, " = ", $host, "\n";
 use Net::Telnet;
 my $connection;
 eval {$connection=Net::Telnet->new(Timeout => 100, Host => $host, Port=>80)};

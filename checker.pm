@@ -35,7 +35,7 @@ my $rules   = <FH>;
 open(SET, '<', 'optimizer_messages.json');
 my $error_messages = <SET>;
 
-my $domain = 'www.abv.bg'; # current website
+my $domain = 'ganev.bg'; # current website
 
 # json decode
 $rules = decode_json($rules);
@@ -158,10 +158,10 @@ sub rules
 	}
 }
 
-use base 'dbi_seo::DBI';
-
 sub CheckSite
 {
+	use base 'dbi_seo::DBI';
+
 	checker->table('sites');
 	checker->columns(All => qw/id link content depth vis_cr/);
 
@@ -173,12 +173,12 @@ sub CheckSite
 	}
 
 	# after finishing delete all
-	checker::SEO->delete_all;
-	checker::SEO->dbi_commit();
+	#checker::SEO->delete_all;
+	#checker::SEO->dbi_commit();
 }
 
 #temp
-&CheckSite();
+#&CheckSite();
 
 END {} #global destructor
 
