@@ -171,7 +171,14 @@ sub CheckSite
 	{
 		&rules($_->content);
 	}
+
+	# after finishing delete all
+	checker->table('sites');
+	checker->delete_all;
 }
+
+#temp
+&CheckSite();
 
 END {} #global destructor
 
