@@ -5,40 +5,30 @@
 				"use": false
 			},
             "content": {
-                "max_length": 200
+                "max_length": 100000
             },
 			"title": {
-				"max_length": 10,
+				"max_length": 127,
 				"keywords": {
 					"bad": ["banner", "affiliate", "tralala", "devs"]
 				}
 			},
 			"meta_tags": {
 				"description": {
-					"max_length": 10
+					"max_length": 255
 				}
 			},
 			"urls": {
-				"max_length": 2,
+				"max_length": 150,
 				"max_special_chars": 25,
-				"max_slashes": 5
+				"max_slashes": 10
 			},
 			"tags": {
-				"ul": {
-					"use": true
-				},
 				"a": {
 					"max_elements": 100
 				},
 				"h1": {
-					"use": true,
 					"max_elements": 10
-				},
-				"h2": {
-					"max_elements": 20
-				},
-				"h3": {
-					"max_elements": 100
 				},
 				"img": {
 					"max_elements": 100,

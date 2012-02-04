@@ -20,30 +20,20 @@
 			},
 			"urls": {
 				"max_length": "Url's maximum length should be $$ symbols. You have @@ urls with more than $$ symbols in them.\n",
-				"max_special_chars": "Url's maximum number of special characters is $$. You have @@ links with more than $$ special characters.\n",
-				"max_slashes": "Url's maximum number of slashes is $$. You have @@ links with more than $$ slashes.\n"
+				"max_special_chars": "Url's maximum number of special characters is $$. You have @@ urls with more than $$ special characters.\n",
+				"max_slashes": "Url's maximum number of slashes is $$. You have @@ urls with more than $$ slashes.\n"
 			},
 			"tags": {
-				"ul": {
-					"required": true
-				},
 				"a": {
-					"max_elements": 100
+					"max_elements": "Page's maximum number of links is $$. You have more than $$ on page for a total of @@.\n"
 				},
 				"h1": {
-					"required": true,
-					"max_elements": 10
-				},
-				"h2": {
-					"max_elements": 20
-				},
-				"h3": {
-					"max_elements": 100
+					"max_elements": "Page's maximum number of h1 is $$. You have more than $$ on page for a total of @@.\n"
 				},
 				"img": {
-					"max_elements": 100,
+					"max_elements": "Page's maximum number of images is $$. You have more than $$ on a page for a total of @@.\n",
 					"alt": {
-						"required": true
+						"use": "Images' attribute alt is $$ required.\n"
 					}
 				}
 			}

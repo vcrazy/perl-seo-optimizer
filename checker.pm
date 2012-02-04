@@ -3,7 +3,6 @@ use dbi_seo;
 
 package checker;
 
-use strict;
 use globalvars;
 
 use JSON;
@@ -35,21 +34,43 @@ my $rules   = <FH>;
 open(SET, '<', 'optimizer_messages.json');
 my $error_messages = <SET>;
 
-my $domain = 'ganev.bg'; # current website
-my @errors; # all errors
+my %errors; # all errors
 
 # json decode
 $rules = decode_json($rules);
 $error_messages = decode_json($error_messages);
 
+# ex-printer now scanner :D
 sub printer
 {
 	my ($message, $rule, $number_of_problems) = @_;
 
-	$message=~s/\$\$/$rule/g;
-	$message=~s/\@\@/$number_of_problems/g;
+	if(!$errors{$message})
+	{
+		$errors{$message}{'rule'} = $rule;
+		$errors{$message}{'number_of_problems'} = $number_of_problems;
+	}
+	else
+	{
+		$errors{$message}{'number_of_problems'} += $number_of_problems;
+	}
+}
 
-	print $message;
+sub PrintErrors
+{
+	foreach my $message_key (keys %errors)
+	{
+		my $message = $message_key;
+		my $rule = $errors{$message}{'rule'};
+		#my $rule = $errors{$message};
+		my $number_of_problems = $errors{$message}{'number_of_problems'};
+		#my $number_of_problems = 'more';
+
+		$message=~s/\$\$/$rule/g;
+		$message=~s/\@\@/$number_of_problems/g;
+
+		print $message;
+	}
 }
 
 sub max_length
@@ -95,13 +116,26 @@ sub max_chars
 
 sub case_use
 {
-	my ($use, $key, $must, $content) = @_;
+	my ($use, $content, $must, $error) = @_;
 
 	my $save_content = $content;
 
 	if((!$must && $content=~s/\<$use//g) || ($must && !($save_content=~s/\<$use//g)))
 	{
-		&printer($error_messages->{'settings'}{'content'}{$key}{'use'}, $must ? '' : 'not');
+		&printer($error, $must ? '' : 'not');
+	}
+}
+
+sub case_use_attribute
+{
+	my ($use, $attr, $content, $must, $error) = @_;
+
+	my $content_d = $content;
+	$content_d=~s/\<$use(.*?)$attr=(.*?)>//g;
+
+	if($must && length($content) != length($content_d))
+	{
+		&printer($error, $must ? '' : 'not');
 	}
 }
 
@@ -109,7 +143,9 @@ sub times_found
 {
 	my ($word, $content) = @_;
 
-	return length($content=~m/$word/ig);
+	my $found = $content=~m/$word/ig;
+
+	return length($found);
 }
 
 sub bad_words
@@ -125,6 +161,22 @@ sub bad_words
 	if($bad)
 	{
 		&printer($error_messages->{'settings'}{'content'}{$key}{'keywords'}{'bad'}, $bad, join(', ', @{$rules->{'settings'}{'content'}{$key}{'keywords'}{'bad'}}));
+	}
+}
+
+sub max_elements
+{
+	my ($content, $element, $max, $error) = @_;
+
+	my $con = $content;
+
+	$content=~s/<$element//g;
+
+	my $len = (length($con) - length($content)) / (length($element)+1);
+
+	if($len > $max)
+	{
+		&printer($error, $max, $len);
 	}
 }
 
@@ -144,11 +196,11 @@ sub rules
 					{
 						case "use"
 						{
-							&case_use('object', 'flash', $rules->{'settings'}{'content'}{'flash'}{$_}, $content);
+							&case_use('object', $content, $rules->{'settings'}{'content'}{'flash'}{$_}, $error_messages->{'settings'}{'content'}{'flash'}{$_});
 						}
 					}
 				}
-			}
+			} # end of flash key
 			case 'content'
 			{
 				foreach(keys %{$rules->{'settings'}{'content'}{'content'}})
@@ -161,7 +213,7 @@ sub rules
 						}
 					}
 				}
-			}
+			} # end of content key
 			case 'title'
 			{
 				foreach(keys %{$rules->{'settings'}{'content'}{'title'}})
@@ -181,7 +233,7 @@ sub rules
 						}
 					}
 				}
-			}
+			} # end of  title key
 			case "urls"
 			{
 				my %urls;
@@ -210,7 +262,7 @@ sub rules
 						}
 					}
 				}
-			}
+			} # end of urls key
 			case 'meta_tags'
 			{
 				foreach(keys %{$rules->{'settings'}{'content'}{'meta_tags'}})
@@ -236,7 +288,62 @@ sub rules
 						}
 					}
 				}
-			}
+			} # end of meta_tags key
+			case 'tags'
+			{
+				foreach(keys %{$rules->{'settings'}{'content'}{'tags'}})
+				{
+					switch($_)
+					{
+						case "a"
+						{
+							foreach(keys %{$rules->{'settings'}{'content'}{'tags'}{'a'}})
+							{
+								switch($_)
+								{
+									case "max_elements"
+									{
+										&max_elements($content, 'a', $rules->{'settings'}{'content'}{'tags'}{'a'}{$_}, $error_messages->{'settings'}{'content'}{'tags'}{'a'}{$_});
+									}
+								}
+							}
+						} # end of a
+						case "h1"
+						{
+							foreach(keys %{$rules->{'settings'}{'content'}{'tags'}{'h1'}})
+							{
+								switch($_)
+								{
+									case "max_elements"
+									{
+										&max_elements($content, 'h1', $rules->{'settings'}{'content'}{'tags'}{'h1'}{$_}, $error_messages->{'settings'}{'content'}{'tags'}{'h1'}{$_});
+									}
+								}
+							}
+						} # end of h1
+						case "img"
+						{
+							foreach(keys %{$rules->{'settings'}{'content'}{'tags'}{'img'}})
+							{
+								switch($_)
+								{
+									case "max_elements"
+									{
+										&max_elements($content, 'img', $rules->{'settings'}{'content'}{'tags'}{'img'}{$_}, $error_messages->{'settings'}{'content'}{'tags'}{'img'}{$_});
+									}
+									case "alt"
+									{
+										foreach(keys %{$rules->{'settings'}{'content'}{'tags'}{'img'}{'alt'}})
+										{
+											&case_use_attribute('img', 'alt', $content, $rules->{'settings'}{'content'}{'tags'}{'img'}{'alt'}{$_}, $error_messages->{'settings'}{'content'}{'tags'}{'img'}{'alt'}{$_});
+										}
+									}
+								}
+							}
+						} # end of img
+					}
+				}
+			} # end of tags key
 		}
 	}
 }
@@ -258,10 +365,10 @@ sub CheckSite
 	# after finishing delete all
 	#checker::SEO->delete_all;
 	#checker::SEO->dbi_commit();
-}
 
-#temp
-&CheckSite();
+	# print all errors
+	&PrintErrors();
+}
 
 END {} #global destructor
 
