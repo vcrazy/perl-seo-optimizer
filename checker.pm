@@ -3,6 +3,7 @@ use dbi_seo;
 
 package checker;
 
+use strict;
 use globalvars;
 
 use JSON;
